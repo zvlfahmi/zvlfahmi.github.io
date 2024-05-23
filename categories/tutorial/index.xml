@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on zvlfahmi&#39;s Personal Blog</title>
+    <link>http://localhost:1313/categories/tutorial/</link>
+    <description>Recent content in Tutorial on zvlfahmi&#39;s Personal Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Jun 2021 06:23:22 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Crash</title>
+      <link>http://localhost:1313/archive/google-crash/</link>
+      <pubDate>Tue, 22 Jun 2021 06:23:22 +0000</pubDate>
+      <guid>http://localhost:1313/archive/google-crash/</guid>
+      <description>Akhir Akhir Ini Banyak Sekali User Ngeluh Tentang Google Selalu Berhenti. Walaupun Hanya Berhenti. tapi Notifikasi nya membuat user experience terganggu.&#xA;Disini Saya Akan Memberitahu Bagaimana Caranya Mengatasi Hal Ini.&#xA;1.Buka Setelan Hape Anda 2.Cari Setelan Aplikasi 3.Cari Google 4.Uninstall Pembaruan&#xA;Selesai, Sekarang Notifikasi Google tetap berhenti sudah hilang.&#xA;Bug ini muncul di google terbaru yang update secara otomatis.&#xA;Semoga Saja Tutorial Ini Membantu Kalian.&#xA;Sampai Jumpa, Terimakasih Sudah Membaca Artikel Ini</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coding on zvlfahmi&#39;s Personal Blog</title>
+    <link>http://localhost:1313/categories/coding/</link>
+    <description>Recent content in Coding on zvlfahmi&#39;s Personal Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 06:22:14 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kalkulator Sederhana</title>
+      <link>http://localhost:1313/archive/kalkulator-sederhana/</link>
+      <pubDate>Sun, 20 Jun 2021 06:22:14 +0000</pubDate>
+      <guid>http://localhost:1313/archive/kalkulator-sederhana/</guid>
+      <description>Tutorial Membuat Kalkulator Sederhana&#xA;1.Install Termux&#xA;2.Install Python3 melalui command &amp;ldquo;pkg install python&amp;rdquo; atau &amp;ldquo;apt install python&amp;rdquo;&#xA;3.Masukan Kode Dibawah di Text Editor.&#xA;4.Save Di Folder Yang Di Inginkan.&#xA;5.Run cd (direktori file code tadi berada)&#xA;6.Selesai</description>
+    </item>
+  </channel>
+</rss>
