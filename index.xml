@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ZulfahmiWeb</title>
+    <title>zvlfahmi&#39;s Personal Blog</title>
     <link>https://zvlfahmi.github.io/</link>
-    <description>Recent content on ZulfahmiWeb</description>
+    <description>Recent content on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 May 2021 09:35:44 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 May 2024 08:06:40 +0700</lastBuildDate>
     <atom:link href="https://zvlfahmi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://zvlfahmi.github.io/about/about/</link>
+      <pubDate>Thu, 23 May 2024 08:06:40 +0700</pubDate>
+      <guid>https://zvlfahmi.github.io/about/about/</guid>
+      <description>Halo! My name is Zulfahmi Azka, i&amp;rsquo;m a 16yo hobbyist programmer from Indonesia. I&amp;rsquo;m currently studying in High School. I also sometime does photography.&#xA;Github : zvlfahmi&#xA;Discord : zvlfahmi</description>
+    </item>
     <item>
       <title>Review Poco M3</title>
       <link>https://zvlfahmi.github.io/post/pocom3/</link>
