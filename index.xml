@@ -6,8 +6,15 @@
     <description>Recent content on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 May 2024 09:48:48 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2024 08:41:29 +0700</lastBuildDate>
     <atom:link href="https://zvlfahmi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apa itu HEVC dan H.264?</title>
+      <link>https://zvlfahmi.github.io/post/hevc-dan-avc/</link>
+      <pubDate>Sat, 01 Jun 2024 08:41:29 +0700</pubDate>
+      <guid>https://zvlfahmi.github.io/post/hevc-dan-avc/</guid>
+      <description>Mungkin kalian pernah melihat kata &amp;ldquo;HEVC&amp;rdquo; atau &amp;ldquo;H.265&amp;rdquo; dan &amp;ldquo;AVC&amp;rdquo; atau &amp;ldquo;H.264&amp;rdquo; di Pengaturan aplikasi Kamera sebelumnya, tapi apa itu HEVC dan H264? Kedua hal tersebut adalah sebuah metode kompresi video, tapi sebelum mebahas apa itu kita perlu memahami apa itu Codec&#xA;Apa itu Codec? Codec merupakan singkatan dari &amp;ldquo;Coder and Decoder&amp;rdquo; atau &amp;ldquo;Compressor and Decompressor&amp;rdquo; adalah sebuah program komputer yang bisa mengubah format data, terutama data suara dan video. Codec bekerja dengan cara mengkompres ukuran data audio atau video menjadi lebih kecil.</description>
+    </item>
     <item>
       <title>I&#39;m Back</title>
       <link>https://zvlfahmi.github.io/post/wherehaveibeen/</link>
