@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on zvlfahmi&#39;s Personal Blog</title>
-    <link>http://localhost:1313/about/</link>
+    <link>https://zvlfahmi.github.io/about/</link>
     <description>Recent content in Abouts on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 May 2024 08:06:40 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://zvlfahmi.github.io/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/about/</link>
+      <link>https://zvlfahmi.github.io/about/about/</link>
       <pubDate>Thu, 23 May 2024 08:06:40 +0700</pubDate>
-      <guid>http://localhost:1313/about/about/</guid>
+      <guid>https://zvlfahmi.github.io/about/about/</guid>
       <description>Halo! My name is Zulfahmi Azka, i&amp;rsquo;m a 16yo hobbyist programmer from Indonesia. I&amp;rsquo;m currently studying in Islamic High School. I also sometime does photography.&#xA;Github : zvlfahmi&#xA;Discord : zvlfahmi</description>
     </item>
   </channel>
