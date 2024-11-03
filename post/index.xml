@@ -2,45 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on zvlfahmi&#39;s Personal Blog</title>
-    <link>https://zvlfahmi.github.io/post/</link>
+    <link>http://localhost:1313/post/</link>
     <description>Recent content in Posts on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2024 13:29:29 +0700</lastBuildDate>
-    <atom:link href="https://zvlfahmi.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Nov 2024 18:10:52 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Camera Noob Guide: Angle dan Komposisi</title>
+      <link>http://localhost:1313/post/basic-camera-angle/</link>
+      <pubDate>Sun, 03 Nov 2024 18:10:52 +0700</pubDate>
+      <guid>http://localhost:1313/post/basic-camera-angle/</guid>
+      <description>Angle Angle dalam fotografi mengacu pada sudut pandang kamera terhadap objek yang difoto. Angle yang tepat dapat mengubah suasana, perspektif, dan bahkan emosi yang ingin ditampilkan dalam foto.&#xA;Ada beberapa Angle yang umum dalam fotografi, yaitu Eye-level, High-angle, Low-angle dan Dutch Angle&#xA;1. Eye-level Angle Eye-level angle menempatkan kamera sejajar dengan mata subjek, umumnya digunakan untuk Potrait. Angle ini memberikan kesan natural karena menunjukkan apa yang fotografer lihat&#xA;2. High Angle High Angle menempatkan kamera lebih tinggi dari subjek, kesan yang ditimbulkan high angle adalah kurang berdaya atau penonton akan merasa berkuasa dalam melihat foto atau video.</description>
+    </item>
     <item>
       <title>Camera Noob Guide: Segitiga Exposure</title>
-      <link>https://zvlfahmi.github.io/post/basic-camera-i/</link>
+      <link>http://localhost:1313/post/basic-camera-i/</link>
       <pubDate>Sun, 03 Nov 2024 13:29:29 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/basic-camera-i/</guid>
+      <guid>http://localhost:1313/post/basic-camera-i/</guid>
       <description>Saat menggunakan kamera, kalian mungkin kalian pernah mendengar segitiga exposure. Apa sih segitiga exposure itu? Seberapa pentingnya segitiga exposure?&#xA;Segitiga Exposure adalah Elemen-elemen dasar dalam fotografi yang terdiri dari Aperture, ISO dan Shutter Speed, 3 Elemen tersebut berpengaruh pada seberapa banyak cahaya (dalam artian semakin terang) yang ditangkap oleh Sensor.&#xA;Source : Website Kemenkeu&#xA;1. ISO ISO mengatur seberapa sensitif sensor kamera dalam menangkap cahaya. Semakin tinggi nilai ISO maka sensor akan lebih sensitif terhadap cahaya dan gambar akan menjadi terang, dan semakin kecil maka gambar menjadi redup.</description>
     </item>
     <item>
       <title>Camera Noob Guide: Introduction</title>
-      <link>https://zvlfahmi.github.io/post/introduction-camera/</link>
+      <link>http://localhost:1313/post/introduction-camera/</link>
       <pubDate>Sun, 03 Nov 2024 13:02:28 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/introduction-camera/</guid>
+      <guid>http://localhost:1313/post/introduction-camera/</guid>
       <description>Halo Pembaca, ini adalah blog guide tentang hal-hal dasar pengoperasian perangkat Kamera. Guide ini terdiri dari berbagai bagian dan pada guide pertama ini saya akan memperkenalkan hal-hal dasar pengoperasian Kamera.&#xA;Kamera adalah alat untuk mengambil gambar atau video yang disimpan ke dalam sebuah medium, baik digital maupun fisik. Terdapat beberapa jenis kamera, seperti DSLR, Mirrorless dan Compact Camera. Apa bedanya?&#xA;1. DSLR Digital Single Lens Reflex atau DSLR merupakan jenis Kamera yang menggunakan cermin untuk memantulkan cahaya yang masuk dari Lensa ke Pembidik/Viewfinder.</description>
     </item>
     <item>
       <title>Apa itu HEVC dan H.264?</title>
-      <link>https://zvlfahmi.github.io/post/hevc-dan-avc/</link>
+      <link>http://localhost:1313/post/hevc-dan-avc/</link>
       <pubDate>Sat, 01 Jun 2024 08:41:29 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/hevc-dan-avc/</guid>
+      <guid>http://localhost:1313/post/hevc-dan-avc/</guid>
       <description>Mungkin kalian pernah melihat kata &amp;ldquo;HEVC&amp;rdquo; atau &amp;ldquo;H.265&amp;rdquo; dan &amp;ldquo;AVC&amp;rdquo; atau &amp;ldquo;H.264&amp;rdquo; di Pengaturan aplikasi Kamera sebelumnya, tapi apa itu HEVC dan H264? Kedua hal tersebut adalah sebuah metode kompresi video, tapi sebelum mebahas apa itu kita perlu memahami apa itu Codec&#xA;Apa itu Codec? Codec merupakan singkatan dari &amp;ldquo;Coder and Decoder&amp;rdquo; atau &amp;ldquo;Compressor and Decompressor&amp;rdquo; adalah sebuah program komputer yang bisa mengubah format data, terutama data suara dan video. Codec bekerja dengan cara mengkompres ukuran data audio atau video menjadi lebih kecil.</description>
     </item>
     <item>
       <title>I&#39;m Back</title>
-      <link>https://zvlfahmi.github.io/post/wherehaveibeen/</link>
+      <link>http://localhost:1313/post/wherehaveibeen/</link>
       <pubDate>Thu, 23 May 2024 09:48:48 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/wherehaveibeen/</guid>
+      <guid>http://localhost:1313/post/wherehaveibeen/</guid>
       <description>Q : Where did you go? (Kamu kemana aja?) A : 2 years ago, i realized i accidentally left my location information opened in my photos metadata so i decided to close my account and so my website.&#xA;Q : What have you been doing all this time? (Kamu ngapain aja selama ini?) A: I&amp;rsquo;m now in my first year in islamic high school and i have never touched this repo for a long time until now and i have lost my interest in Web Development and programming in general.</description>
     </item>
     <item>
       <title>Review Poco M3</title>
-      <link>https://zvlfahmi.github.io/post/pocom3/</link>
+      <link>http://localhost:1313/post/pocom3/</link>
       <pubDate>Mon, 24 May 2021 09:35:44 +0000</pubDate>
-      <guid>https://zvlfahmi.github.io/post/pocom3/</guid>
+      <guid>http://localhost:1313/post/pocom3/</guid>
       <description>Review singkat Poco M3/(citrus_id)&#xA;1. Body Body Poco M3 Terbuat dari Plastik Yang Memiliki Tekstur Seperti Kulit. Memiliki Bobot mencapai 198g karena Baterainya yang besar.&#xA;2. Display Display Poco M3 Menggunakan Panel IPS beresolusi 1080x2340 (FHD) dengan refresh rate 60Hz. Vendor Display Poco M3 adalah CSOT (TCL) tidak seperti hape murah Xiaomi lainnya yang memakai Tianma. Namun, tingkat kecerahannya masih kurang untuk penggunaan outdoor, dan saya mengalami touch delay di sekitar pinggiran layar.</description>
     </item>
   </channel>

@@ -2,24 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Photography on zvlfahmi&#39;s Personal Blog</title>
-    <link>https://zvlfahmi.github.io/categories/photography/</link>
+    <link>http://localhost:1313/categories/photography/</link>
     <description>Recent content in Photography on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2024 13:29:29 +0700</lastBuildDate>
-    <atom:link href="https://zvlfahmi.github.io/categories/photography/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Nov 2024 18:10:52 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/photography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Camera Noob Guide: Angle dan Komposisi</title>
+      <link>http://localhost:1313/post/basic-camera-angle/</link>
+      <pubDate>Sun, 03 Nov 2024 18:10:52 +0700</pubDate>
+      <guid>http://localhost:1313/post/basic-camera-angle/</guid>
+      <description>Angle dalam fotografi mengacu pada sudut pandang kamera terhadap objek yang difoto. Angle yang tepat dapat mengubah suasana, perspektif, dan bahkan emosi yang ingin ditampilkan dalam foto.&#xA;Ada beberapa Angle yang umum dalam fotografi, yaitu Eye-level, High-angle, Low-angle dan Dutch Angle&#xA;1. Eye-level Angle Eye-level angle menempatkan kamera sejajar dengan mata subjek, umumnya digunakan untuk Potrait. Angle ini memberikan kesan natural karena menunjukkan apa yang fotografer lihat&#xA;2. High Angle High Angle menempatkan kamera lebih tinggi dari subjek, kesan yang ditimbulkan high angle adalah kurang berdaya atau penonton akan merasa berkuasa dalam melihat foto atau video.</description>
+    </item>
     <item>
       <title>Camera Noob Guide: Segitiga Exposure</title>
-      <link>https://zvlfahmi.github.io/post/basic-camera-i/</link>
+      <link>http://localhost:1313/post/basic-camera-i/</link>
       <pubDate>Sun, 03 Nov 2024 13:29:29 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/basic-camera-i/</guid>
+      <guid>http://localhost:1313/post/basic-camera-i/</guid>
       <description>Saat menggunakan kamera, kalian mungkin kalian pernah mendengar segitiga exposure. Apa sih segitiga exposure itu? Seberapa pentingnya segitiga exposure?&#xA;Segitiga Exposure adalah Elemen-elemen dasar dalam fotografi yang terdiri dari Aperture, ISO dan Shutter Speed, 3 Elemen tersebut berpengaruh pada seberapa banyak cahaya (dalam artian semakin terang) yang ditangkap oleh Sensor.&#xA;Source : Website Kemenkeu&#xA;1. ISO ISO mengatur seberapa sensitif sensor kamera dalam menangkap cahaya. Semakin tinggi nilai ISO maka sensor akan lebih sensitif terhadap cahaya dan gambar akan menjadi terang, dan semakin kecil maka gambar menjadi redup.</description>
     </item>
     <item>
       <title>Camera Noob Guide: Introduction</title>
-      <link>https://zvlfahmi.github.io/post/introduction-camera/</link>
+      <link>http://localhost:1313/post/introduction-camera/</link>
       <pubDate>Sun, 03 Nov 2024 13:02:28 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/introduction-camera/</guid>
+      <guid>http://localhost:1313/post/introduction-camera/</guid>
       <description>Halo Pembaca, ini adalah blog guide tentang hal-hal dasar pengoperasian perangkat Kamera. Guide ini terdiri dari berbagai bagian dan pada guide pertama ini saya akan memperkenalkan hal-hal dasar pengoperasian Kamera.&#xA;Kamera adalah alat untuk mengambil gambar atau video yang disimpan ke dalam sebuah medium, baik digital maupun fisik. Terdapat beberapa jenis kamera, seperti DSLR, Mirrorless dan Compact Camera. Apa bedanya?&#xA;1. DSLR Digital Single Lens Reflex atau DSLR merupakan jenis Kamera yang menggunakan cermin untuk memantulkan cahaya yang masuk dari Lensa ke Pembidik/Viewfinder.</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Poco on zvlfahmi&#39;s Personal Blog</title>
-    <link>https://zvlfahmi.github.io/tags/poco/</link>
+    <link>http://localhost:1313/tags/poco/</link>
     <description>Recent content in Poco on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 May 2021 09:35:44 +0000</lastBuildDate>
-    <atom:link href="https://zvlfahmi.github.io/tags/poco/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/poco/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review Poco M3</title>
-      <link>https://zvlfahmi.github.io/post/pocom3/</link>
+      <link>http://localhost:1313/post/pocom3/</link>
       <pubDate>Mon, 24 May 2021 09:35:44 +0000</pubDate>
-      <guid>https://zvlfahmi.github.io/post/pocom3/</guid>
+      <guid>http://localhost:1313/post/pocom3/</guid>
       <description>Review singkat Poco M3/(citrus_id)&#xA;1. Body Body Poco M3 Terbuat dari Plastik Yang Memiliki Tekstur Seperti Kulit. Memiliki Bobot mencapai 198g karena Baterainya yang besar.&#xA;2. Display Display Poco M3 Menggunakan Panel IPS beresolusi 1080x2340 (FHD) dengan refresh rate 60Hz. Vendor Display Poco M3 adalah CSOT (TCL) tidak seperti hape murah Xiaomi lainnya yang memakai Tianma. Namun, tingkat kecerahannya masih kurang untuk penggunaan outdoor, dan saya mengalami touch delay di sekitar pinggiran layar.</description>
     </item>
   </channel>
