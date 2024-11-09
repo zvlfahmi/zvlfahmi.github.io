@@ -6,8 +6,15 @@
     <description>Recent content on zvlfahmi&#39;s Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2024 18:10:52 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 Nov 2024 16:44:01 +0700</lastBuildDate>
     <atom:link href="https://zvlfahmi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Camera Noob Guide: Jenis Lensa dan Focal Length</title>
+      <link>https://zvlfahmi.github.io/post/basic-camera-focal/</link>
+      <pubDate>Sat, 09 Nov 2024 16:44:01 +0700</pubDate>
+      <guid>https://zvlfahmi.github.io/post/basic-camera-focal/</guid>
+      <description>Lensa Terdapat banyak jenis lensa kamera seperti Wide, Ultrawide (no, it&amp;rsquo;s not &amp;ldquo;&amp;ldquo;&amp;ldquo;&amp;ldquo;&amp;ldquo;&amp;ldquo;&amp;ldquo;0.5x&amp;rdquo;&amp;rdquo;&amp;rdquo;&amp;rdquo;&amp;rdquo;&amp;rdquo;&amp;rdquo;), Telephoto dan sebagainya. Lalu apa bedanya? Note: Perhatikan bahwa focal length yang digunakan adalah focal length pada Full Frame atau Film 35mm&#xA;1. Lens Wide Lens Wide atau Lensa Lebar adalah lensa yang mampu menghasilkan gambar dengan sudut pandang yang lebar. Ciri lensa wide adalah focal lengthnya yang lebih pendek dari 50mm. Umumnya lensa ini digunakan untuk foto jarak dekat Kelebihan dari lensa wide adalah kemampuannya untuk menangkap gambar yang lebih luas walau difoto dari jarak dekat dan fokusnya merata karena depth of fieldnya yang lebih luas.</description>
+    </item>
     <item>
       <title>Camera Noob Guide: Angle dan Komposisi</title>
       <link>https://zvlfahmi.github.io/post/basic-camera-angle/</link>
@@ -17,9 +24,9 @@
     </item>
     <item>
       <title>Camera Noob Guide: Segitiga Exposure</title>
-      <link>https://zvlfahmi.github.io/post/basic-camera-i/</link>
+      <link>https://zvlfahmi.github.io/post/basic-camera-exposure/</link>
       <pubDate>Sun, 03 Nov 2024 13:29:29 +0700</pubDate>
-      <guid>https://zvlfahmi.github.io/post/basic-camera-i/</guid>
+      <guid>https://zvlfahmi.github.io/post/basic-camera-exposure/</guid>
       <description>Saat menggunakan kamera, kalian mungkin kalian pernah mendengar segitiga exposure. Apa sih segitiga exposure itu? Seberapa pentingnya segitiga exposure?&#xA;Segitiga Exposure adalah Elemen-elemen dasar dalam fotografi yang terdiri dari Aperture, ISO dan Shutter Speed, 3 Elemen tersebut berpengaruh pada seberapa banyak cahaya (dalam artian semakin terang) yang ditangkap oleh Sensor.&#xA;Source : Website Kemenkeu&#xA;1. ISO ISO mengatur seberapa sensitif sensor kamera dalam menangkap cahaya. Semakin tinggi nilai ISO maka sensor akan lebih sensitif terhadap cahaya dan gambar akan menjadi terang, dan semakin kecil maka gambar menjadi redup.</description>
     </item>
     <item>
@@ -48,7 +55,7 @@
       <link>https://zvlfahmi.github.io/about/about/</link>
       <pubDate>Thu, 23 May 2024 08:06:40 +0700</pubDate>
       <guid>https://zvlfahmi.github.io/about/about/</guid>
-      <description>Halo! My name is Zulfahmi Azka, i&amp;rsquo;m a 16yo hobbyist programmer from Indonesia. I&amp;rsquo;m currently studying in Islamic High School. I also sometime does photography.&#xA;Github : zvlfahmi&#xA;Discord : zvlfahmi</description>
+      <description>Hello! My Name is Zulfahmi Azka, i&amp;rsquo;m a hobbyist and self-taught programmer and photographer. I&amp;rsquo;m an Islamic High School student from Indonesia, I primarily code in C++. This is my personal blog&#xA;Github : zvlfahmi&#xA;Discord : zvlfahmi</description>
     </item>
     <item>
       <title>Review Poco M3</title>
