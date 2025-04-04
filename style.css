@@ -1,6 +1,6 @@
 body {
   font-family: "Roboto Mono", monospace;
-  background-color: #424242;
+  background-color: #2a2a2a;
   margin: 0;
   color: white;
   position: relative;
@@ -39,6 +39,9 @@ h1, h3 {
 }
 
 .regulardiv img, video, iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 65vw; 
   height: auto; 
   border-radius: 0.75rem
@@ -70,12 +73,16 @@ h1, h3 {
 
 .newbox a {
   color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
   text-decoration: none;
 }
 .newbox img {
-    width: 80vw; 
-    height: auto; 
-    border-radius: 2%
+
+  width: 80vw; 
+  height: auto; 
+  border-radius: 2%
 }
 
 .news {
