@@ -30,8 +30,12 @@ h1, h3 {
   width: 80vw;
   padding-left: 10vw;
   margin-right: 10vw;
-
   padding-bottom: 7rem;
+}
+
+.regulardiv a {
+  color: lightblue;
+  text-decoration: none;
 }
 
 .regulardiv img, video, iframe {
@@ -92,7 +96,7 @@ This is for screens larger than the min-width
     font-size: larger;
   }
   .news {
-    width: 50vw;
+    width: 75vw;
   }
 
   /* .regulardiv {
