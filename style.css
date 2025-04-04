@@ -33,6 +33,10 @@ h1, h3 {
   padding-bottom: 7rem;
 }
 
+a {
+  color:#004fa2;
+  text-decoration: none;
+}
 .regulardiv a {
   color: lightblue;
   text-decoration: none;
@@ -76,8 +80,15 @@ h1, h3 {
   display: block;
   height: 100%;
   width: 100%;
+  
   text-decoration: none;
 }
+.newbox a:hover, a:hover {
+  color: #71b6ff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
 .newbox img {
 
   width: 80vw; 
@@ -182,10 +193,4 @@ footer#footer {
   padding-right: 10%;
   font-family: "Roboto Mono", monospace;
   color:#739fcb;
-}
-
-footer#footer a {
-  
-  color: #747474;
-  text-decoration: none;
 }
