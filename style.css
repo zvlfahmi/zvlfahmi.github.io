@@ -1,3 +1,8 @@
+a {
+  color:#0050a7;
+  text-decoration: none;
+}
+
 body {
   font-family: "Roboto Mono", monospace;
   background-color: #2a2a2a;
@@ -6,73 +11,40 @@ body {
   position: relative;
   min-height: 100vh;
 }
-/*stuff*/
-/* .bannerindex {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url(./img/divbackground.jpeg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 80vw;
-  padding-top: 2vw;
-  padding-left: 10vw;
-  padding-right: 10vw;
-  padding-bottom: 2vw;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
-} */
 
+code {
+  background-color: #252525;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+img, video, iframe {
+  height: auto; 
+  width: 65vw;
+  border-radius: 0.75rem
+}
 
 h1, h3 {
   text-align: center;
 }
 
-.regulardiv {
-  padding-top: 3rem;
-  width: 80vw;
-  padding-left: 10vw;
-  margin-right: 10vw;
-  padding-bottom: 7rem;
-}
-
-a {
-  color:#004fa2;
-  text-decoration: none;
-}
-.regulardiv a {
-  color: lightblue;
-  text-decoration: none;
-}
-
-.regulardiv img, video, iframe {
+#center, code, img, video, iframe {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80vw; 
-  height: auto; 
-  border-radius: 0.75rem
+  width: 80vw;
 }
 
-#reg {
-  text-align: center;
-  padding-bottom: 0px;
-}
-
-.codediv {
-  background-color: #353535;
-  color: white;
-  padding: 0.5rem;
-  width: inherit;
-  border-radius: 0.5rem;
+.regulardiv {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
 }
 
 .newbox{
-  width: 80vw;
-  padding-right: 10vw;
-  padding-top: 1.5rem;
-  padding-left: 10vw;
   list-style-type: none;
   line-height: 1.8;
   padding-bottom: 10rem;
-  width: 80vw;
 }
 
 .newbox a {
@@ -80,34 +52,29 @@ a {
   display: block;
   height: 100%;
   width: 100%;
-  
   text-decoration: none;
 }
+
 .newbox a:hover, a:hover {
-  color: #71b6ff;
+  color: #2d93ff;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 .newbox img {
-
   width: 80vw; 
   height: auto; 
   border-radius: 2%
 }
 
 .news {
-  width: 78vw;
+  width: 80vw;
   background-color: #2b2b2b;
   padding: 2%;
   margin-bottom: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 }
 
-
-/*
-This is for screens larger than the min-width
-*/
 @media screen and (min-width: 600px) {
 
   body {
@@ -115,19 +82,6 @@ This is for screens larger than the min-width
   }
   .news {
     width: 75vw;
-  }
-
-  /* .regulardiv {
-    width: 50vw;
-    padding-left: 10vw;
-    margin-right: 10vw;
-    padding-bottom: 7rem;
-  } */
-
-  .regulardiv img, video, .codediv {
-    width: 60vw; 
-    height: auto; 
-    border-radius: 0.75rem
   }
 }
 
@@ -158,39 +112,24 @@ ul.topnav li a {
 ul.topnav li a:hover:not(.active) {background-color: #2b2b2b;}
   
 ul.topnav li a.active {background-color: #739fcb;}
-   
-/* @media screen and (max-width: 600px) {
-  ul.topnav li.right  , 
-  ul.topnav li {float: none;}
-} */
 
-/* ^ Not really needed... */ 
-
-ul#repo{
-  list-style-type: none;
-  padding: 0;
-  overflow: hidden;
-  
-}
-
-ul#repo li a {
-  color: #dadea7;;
-  display: block;
-  text-decoration: none;
-}
-
-footer#footer {
-  padding: 0;
-  overflow: hidden;
-  position: fixed;
-  height: 7rem;
-  bottom: 0;
-  left: 0;
-  width: 80%;
-  /* background-color: #2b2b2b; */
-  position: absolute;
-  padding-left: 10%;
-  padding-right: 10%;
+.footer {
   font-family: "Roboto Mono", monospace;
   color:#739fcb;
 }
+
+/* .bannerindex {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url(./img/divbackground.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80vw;
+  padding-top: 2vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 2vw;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+} 
+
+  leftover from ITC Website
+*/
