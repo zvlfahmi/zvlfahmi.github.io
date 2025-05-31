@@ -5,37 +5,53 @@ body {
   color: rgb(202, 202, 202);
   position: relative;
   min-height: 100vh;
-}
-
-#center, img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80vw;
 }
 
-.regulardiv {
-  padding-top: 1.5rem;
-  padding-bottom: 3rem;
+#center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
 }
+
 
 a {
   color:#0050a7;
   text-decoration: none;
 }
 
-.regulardiv img, video, iframe {
+p {
+  line-height: 1.5;
+}
+
+img, video, iframe {
   height: auto; 
-  border-radius: 0.75rem
+  border-radius: 0.75rem;
+  width: 80vw;
+  display: block;
 }
 
 code {
   background-color: #3a3a3a;
-  padding: 0.5rem;
+  padding-left: 1rem;
   width: auto;
   height: auto;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
   display: block;
   border-radius: 0.5rem;
+}
+
+table {
+  width: 80vw;
+  margin: auto;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  border-color: white;
 }
 
 .newbox{
@@ -92,7 +108,7 @@ This is for screens larger than the min-width
     padding-bottom: 7rem;
   } */
 
-  .regulardiv img, video, .codediv {
+  img, video, .codediv {
     width: 60vw; 
     height: auto; 
     border-radius: 0.75rem
@@ -106,13 +122,16 @@ This part doesn't need to be changed
 
 ul.topnav {
   list-style-type: none;
-  margin: 0px 0px 0px;
+  margin: 0;
   padding: 0;
   overflow: hidden;
-  /* background-color: #333; */
+  position: static;
+  width: 100vw;
 }
   
-ul.topnav li {float: left;}
+ul.topnav li {
+  float: left;
+}
   
 ul.topnav li a {
   display: block;
