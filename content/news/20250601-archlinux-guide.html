@@ -51,15 +51,15 @@
 </li>
 <li><a href="#b-manual">B. Manual</a><ul>
 <li><a href="#b-1-disk-partition">B-1. Disk Partition</a></li>
-<li><a href="#b-1-instalasi-package-penting">B-1. Instalasi Package Penting</a></li>
-<li><a href="#b-2-konfigurasi">B-2. Konfigurasi</a></li>
-<li><a href="#b-2a-konfigurasi-waktu">B-2a. Konfigurasi Waktu</a></li>
-<li><a href="#b-2b-konfigurasi-sudoers">B-2b. Konfigurasi Sudoers</a></li>
-<li><a href="#b-2c-konfigurasi-locale">B-2c. Konfigurasi Locale</a></li>
-<li><a href="#b-2b-konfigurasi-hostname-dan-user-account">B-2b. Konfigurasi Hostname dan User Account</a></li>
-<li><a href="#b-3-setup-bootloader">B-3. Setup Bootloader</a></li>
-<li><a href="#b-4-desktop-environment">B-4. Desktop Environment</a></li>
-<li><a href="#b-5-finishing">B-5. Finishing</a></li>
+<li><a href="#b-2-instalasi-package-penting">B-2. Instalasi Package Penting</a></li>
+<li><a href="#b-3-konfigurasi">B-3. Konfigurasi</a></li>
+<li><a href="#b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</a></li>
+<li><a href="#b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</a></li>
+<li><a href="#b-6-konfigurasi-locale">B-6. Konfigurasi Locale</a></li>
+<li><a href="#b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</a></li>
+<li><a href="#b-8-setup-bootloader">B-8. Setup Bootloader</a></li>
+<li><a href="#b-9-desktop-environment">B-9. Desktop Environment</a></li>
+<li><a href="#b-10-finishing">B-10. Finishing</a></li>
 </ul>
 </li>
 <li><a href="#end">## End</a></li>
@@ -294,12 +294,12 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <span class="n">root</span><span class="o">@</span><span class="n">archiso</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="c1"># mount --mkdir /dev/sda1 /mnt/boot</span>
 </code></pre></div>
 
-<h3 id="b-1-instalasi-package-penting">B-1. Instalasi Package Penting</h3>
+<h3 id="b-2-instalasi-package-penting">B-2. Instalasi Package Penting</h3>
 <p>Untuk menginstall basis Sistem, jalankan perintah <code>pacstrap</code> sebagai berikut</p>
 <div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># pacstrap -K /mnt base linux linux-firmware</span>
 </code></pre></div>
 
-<h3 id="b-2-konfigurasi">B-2. Konfigurasi</h3>
+<h3 id="b-3-konfigurasi">B-3. Konfigurasi</h3>
 <p>Setelah selesai menginstall basis sistem, jalankan <code>genfstab</code> untuk membuat <code>/etc/fstab</code></p>
 <div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span>
 </code></pre></div>
@@ -308,7 +308,7 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># arch-chroot /mnt</span>
 </code></pre></div>
 
-<h3 id="b-2a-konfigurasi-waktu">B-2a. Konfigurasi Waktu</h3>
+<h3 id="b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</h3>
 <p>Untuk konfigurasi Zona Waktu:</p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime</span>
 <span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># hwclock --systohc</span>
@@ -318,7 +318,7 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <p class="admonition-title">Note</p>
 <p>Untuk WITA gunakan Asia/Makassar, dan untuk WIT gunakan Asia/Jayapura</p>
 </div>
-<h3 id="b-2b-konfigurasi-sudoers">B-2b. Konfigurasi Sudoers</h3>
+<h3 id="b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</h3>
 <p>Istall package <code>sudo</code> dan <code>vim</code> lalu </p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># pacman -S sudo vim</span>
 </code></pre></div>
@@ -327,7 +327,7 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1">#  visudo</span>
 </code></pre></div>
 
-<h3 id="b-2c-konfigurasi-locale">B-2c. Konfigurasi Locale</h3>
+<h3 id="b-6-konfigurasi-locale">B-6. Konfigurasi Locale</h3>
 <p>Lalu atur locale dengan menghapus comment di <code>/etc/locale.gen</code>. Misalnya <code>en_US.UTF-8</code>, maka hapus comment untuk locale <code>en_US</code></p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># vim /etc/locale.gen</span>
 </code></pre></div>
@@ -344,7 +344,7 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># locale-gen</span>
 </code></pre></div>
 
-<h3 id="b-2b-konfigurasi-hostname-dan-user-account">B-2b. Konfigurasi Hostname dan User Account</h3>
+<h3 id="b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</h3>
 <p>Untuk mengatur hostname, bebas mau ngasih nama apa</p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># echo &lt;HOSTNAME&gt; &gt; /etc/hostname</span>
 </code></pre></div>
@@ -353,7 +353,7 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># useradd -m -G users,audio,lp,optical,storage,video,wheel,power -s /bin/bash &lt;USERNAME&gt;</span>
 </code></pre></div>
 
-<h3 id="b-3-setup-bootloader">B-3. Setup Bootloader</h3>
+<h3 id="b-8-setup-bootloader">B-8. Setup Bootloader</h3>
 <p>Sama seperti di cara yang menggunakan <code>archinstall</code>, saya merekomendasikan <code>GRUB</code>. Install package berikut ini:</p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># pacman -S grub os-prober efibootmgr</span>
 </code></pre></div>
@@ -372,12 +372,12 @@ Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># grub-mkconfig -o /boot/grub/grub.cfg</span>
 </code></pre></div>
 
-<h3 id="b-4-desktop-environment">B-4. Desktop Environment</h3>
+<h3 id="b-9-desktop-environment">B-9. Desktop Environment</h3>
 <p>Install Desktop Environment yang kalian inginkan, <a href="https://wiki.archlinux.org/title/Desktop_environment">list Desktop Environment</a></p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># pacman -S &lt;DE&gt;</span>
 </code></pre></div>
 
-<h3 id="b-5-finishing">B-5. Finishing</h3>
+<h3 id="b-10-finishing">B-10. Finishing</h3>
 <p>Keluar dari <code>chroot</code>, unmount partisi, dan reboot</p>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># exit</span>
 root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># umount -R /mnt</span>
