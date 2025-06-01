@@ -25,7 +25,7 @@ p {
   background-color: #3a3a3a;
   padding: 1rem;
   margin: 1rem 0;
-  width:max-content;
+  max-width: 80vw;
   border-radius: 0.5rem;
   border-left: 4px solid #3279c0;
   font-size: medium;
@@ -103,14 +103,30 @@ code {
 div.codehilite {
   background-color: #3a3a3a;
   padding-left: 1rem;
-  width: 100%;
+  max-width: 80vw;
   height: auto;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  display: block;
   border-radius: 0.5rem;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
+  overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 blockquote {
