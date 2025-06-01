@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://zvlfahmi.github.io/img/arch.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <link rel="icon" href="../../img/icon.png">
+    <title>Panduan Instalasi Arch Linux</title>
+</head>
+
+<header>
+    <ul class="topnav"> 
+ <li><a href="../../index">zvlfahmi.</a></li>
+ <li><a href="../../content/about">About</a></li> 
+ </ul>
+</header>
+
+<body>
+    
+<h1 id="panduan-instalasi-arch-linux">Panduan Instalasi Arch Linux</h1>
+<h3 id="2025-06-01-120425">2025-06-01 12:04:25</h3>
+<p><img alt="" src="../../img/arch.png" /></p>
+<blockquote>
+<p>I use arch btw</p>
+</blockquote>
+<p>Aku ingin nunjukin cara install Arch Linux, <em>so that you can flex your neofetch in r/linux</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Saya anggap orang yang ingin install Arch Linux sudah tau cara menggunakan Terminal dan memahami cara untuk install ulang Sistem Operasi</p>
+</div>
+<div class="toc">
+<ul>
+<li><a href="#panduan-instalasi-arch-linux">Panduan Instalasi Arch Linux</a><ul>
+<li><a href="#2025-06-01-120425">2025-06-01 12:04:25</a></li>
+<li><a href="#prep-internet">Prep - Internet</a></li>
+<li><a href="#a-arch-install-script">A. Arch Install Script</a><ul>
+<li><a href="#a-1-repository">A-1. Repository</a></li>
+<li><a href="#a-2-disk-partitioning">A-2. Disk Partitioning</a></li>
+<li><a href="#a-3-bootloader">A-3. Bootloader</a></li>
+<li><a href="#a-4-hostname-dan-user-account">A-4. Hostname dan User Account</a></li>
+<li><a href="#a-5-desktop-environment">A-5. Desktop Environment</a></li>
+<li><a href="#a-6-audio">A-6. Audio</a></li>
+<li><a href="#a-7-install">A-7. Install</a></li>
+</ul>
+</li>
+<li><a href="#b-manual">B. Manual</a><ul>
+<li><a href="#b-1-disk-partition">B-1. Disk Partition</a></li>
+<li><a href="#b-1-instalasi-package-penting">B-1. Instalasi Package Penting</a></li>
+<li><a href="#b-2-konfigurasi">B-2. Konfigurasi</a></li>
+<li><a href="#b-2a-konfigurasi-waktu">B-2a. Konfigurasi Waktu</a></li>
+<li><a href="#b-2b-konfigurasi-sudoers">B-2b. Konfigurasi Sudoers</a></li>
+<li><a href="#b-2c-konfigurasi-locale">B-2c. Konfigurasi Locale</a></li>
+<li><a href="#b-2b-konfigurasi-hostname-dan-user-account">B-2b. Konfigurasi Hostname dan User Account</a></li>
+<li><a href="#b-3-setup-bootloader">B-3. Setup Bootloader</a></li>
+<li><a href="#b-4-desktop-environment">B-4. Desktop Environment</a></li>
+<li><a href="#b-5-finishing">B-5. Finishing</a></li>
+</ul>
+</li>
+<li><a href="#end">## End</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="prep-internet">Prep - Internet</h2>
+<p>Ada dua metode untuk mendapatkan koneksi internet, yaitu melalui Ethernet atau WiFi. Untuk Ethernet tidak perlu setup tambahan dan hanya perlu dicolokkan ke port Ethernet, namun jika menggunakan WiFi perlu konfigurasi manual menggunakan <code>iwctl</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># iwctl</span>
+<span class="o">[</span>iwd<span class="o">]</span><span class="c1"># device list</span>
+</code></pre></div>
+
+<p>Maka akan keluar daftar device Wireless yang ada di komputer, biasanya <code>wlanX</code> atau <code>wlpNsX</code> </p>
+<div class="codehilite"><pre><span></span><code><span class="w">                                    </span>Devices<span class="w">                                   </span>*
+--------------------------------------------------------------------------------
+<span class="w">  </span>Name<span class="w">                  </span>Address<span class="w">               </span>Powered<span class="w">     </span>Adapter<span class="w">     </span>Mode<span class="w">      </span>
+--------------------------------------------------------------------------------
+<span class="w">  </span>wlan0<span class="w">                 </span><span class="m">00</span>:00:00:00:00:00<span class="w">     </span>on<span class="w">          </span>phy0<span class="w">        </span>station<span class="w">   </span>
+</code></pre></div>
+
+<p>Kita bisa melihat jaringan yang ada disekitar dengan</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station wlan0 scan</span>
+<span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station wlan0 get-networks</span>
+
+--------------------------------------------------------------------------------
+<span class="w">    </span>Network<span class="w"> </span>name<span class="w">                    </span>Security<span class="w">  </span>Signal
+--------------------------------------------------------------------------------
+<span class="w">    </span>NamaWiFiMu<span class="w">                      </span>psk<span class="w">       </span>****
+</code></pre></div>
+
+<p>Kemudian kita bisa masuk ke jaringan</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station wlan0 connect NamaWiFiMu</span>
+</code></pre></div>
+
+<p>Bila diminta password, maka masukkan saja.</p>
+<p>Kemudian keluar dari <code>iwctl</code></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># exit</span>
+</code></pre></div>
+
+<p>Untuk mengecek apakah berhasil terkoneksi bisa dicek menggunakan <code>ping</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># ping archlinux.org</span>
+PING<span class="w"> </span>archlinux.org<span class="w"> </span><span class="o">(</span><span class="m">95</span>.217.163.246<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>archlinux.org<span class="w"> </span><span class="o">(</span><span class="m">95</span>.217.163.246<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">52</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">226</span><span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>archlinux.org<span class="w"> </span><span class="o">(</span><span class="m">95</span>.217.163.246<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">52</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">215</span><span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>archlinux.org<span class="w"> </span><span class="o">(</span><span class="m">95</span>.217.163.246<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">52</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">246</span><span class="w"> </span>ms
+</code></pre></div>
+
+<p>Done, dan bisa dilanjutkan ke tahap selanjutnya</p>
+<h2 id="a-arch-install-script">A. Arch Install Script</h2>
+<p>Setelah komputer boot ke Terminal dan mendapatkan akses internet, proses instalasi dimulai dengan menjalankan perintah <code>archinstall</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># archinstall</span>
+</code></pre></div>
+
+<p><img alt="" src="../../img/archinstall-menu.jpeg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Gunakan arrow keys di keyboard untuk navigasi menu, Spasi untuk memilih opsi, Enter untuk konfirmasi</p>
+</div>
+<h3 id="a-1-repository">A-1. Repository</h3>
+<p>Di Menu <code>Mirror and repositories</code>, pilih <code>Select regions</code> dan pilih <code>Indonesia</code> kemudian Enter dan <code>Back</code></p>
+<p><img alt="" src="../../img/archinstall-mirror.jpeg" /></p>
+<h3 id="a-2-disk-partitioning">A-2. Disk Partitioning</h3>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Partisi NTFS tidak bisa diformat di Linux, bila ingin menggunakan partisi NTFS yang kosong tolong hapus partisinya menggunakan <code>Disk Management</code> di Windows terlebih dahulu</p>
+</div>
+<p>Kemudian di Menu <code>Disk configurations</code>, pilih <code>Partitioning</code>. Kalian akan diberikan 3 Opsi <code>Use a best-effort default partition layout</code>, <code>Manual Partitioning</code>, dan <code>Pre-mounted configuration</code>. Jika kalian memilih untuk menggunakan 1 OS saja, maka pilihlah opsi pertama. Jika ingin dual-boot, pilihlah opsi kedua.</p>
+<p>Kita akan menggunakan <code>Manual Partitioning</code>, karena bisa atur ukuran partisi sendiri.
+<img alt="" src="../../img/partition-1.jpeg" /></p>
+<p>Pilih Storage device untuk instalasi Arch
+<img alt="" src="../../img/partition-2.jpeg" /></p>
+<p>Select yang <code>free</code> kemudian Enter
+<img alt="" src="../../img/partition-5.jpeg" /></p>
+<p>Partisi yang pertama adalah <code>/boot</code>, masukkan ukuran partisinya minimum 500MiB (direkomendasikan 1GiB)
+<img alt="" src="../../img/partition-4.jpeg" /></p>
+<p>Atur Mountpoint di <code>/boot</code> (untuk <code>/</code> ya masukkan <code>/</code>, kalau <code>/home</code> masukkan <code>/home</code> )
+<img alt="" src="../../img/partition-7.jpeg" /></p>
+<p>Pilih <code>fat32</code>
+<img alt="" src="../../img/partition-3.jpeg" /></p>
+<p>Lalu ulangi prosesnya untuk membuat <code>/</code> (root) dan <code>/home</code>, caranya sama seperti membuat partisi <code>/boot</code> namun pilihlah filesystem <code>ext4</code> dan ukuran <code>/</code> dan <code>/home</code> bisa disesuaikan dengan kebutuhan (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
+<p><img alt="" src="../../img/partition-6.jpeg" /></p>
+<p>Confirm and Exit</p>
+<h3 id="a-3-bootloader">A-3. Bootloader</h3>
+<p>Untuk bootloader saya rekomendasikan menggunakan <code>GRUB</code> (i never got <code>systemd-boot</code> working lmao)
+<img alt="" src="../../img/bootloader.jpeg" /></p>
+<h3 id="a-4-hostname-dan-user-account">A-4. Hostname dan User Account</h3>
+<p>Untuk Hostname sih terserah ya, ini adalah nama komputer yang akan terlihat di WiFi dan Bluetooth
+<img alt="" src="../../img/hostname.jpeg" /></p>
+<p>Kemudian di Menu User account, pilih <code>Add User</code>
+<img alt="" src="../../img/user-1.jpeg" /></p>
+<p>Lalu masukkan usernamenya
+<img alt="" src="../../img/user-2.jpeg" /></p>
+<p>Masukkan passwordnya
+<img alt="" src="../../img/user-3.jpeg" /></p>
+<p>Pilih <code>yes</code>
+<img alt="" src="../../img/user-4.jpeg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Akses <code>sudo</code> ekuivalen dengan Administrator di Windows. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Kalian bisa gunakan <code>Root account</code> dengan mengatur <code>Root password</code> (tepat di atas <code>User account</code>) jika kalian tidak ingin akun kalian diberi akses superuser</p>
+</div>
+<h3 id="a-5-desktop-environment">A-5. Desktop Environment</h3>
+<p>Di menu <code>Profile</code> kalian bisa memilih Tipe instalasi, kita pilih <code>Desktop</code>. 
+<img alt="" src="../../img/profile-1.jpeg" /></p>
+<p>Kalian akan disuguhkan dengan opsi yang banyak sekali, itu semua adalah <a href="https://wiki.archlinux.org/title/Desktop_environment">Desktop Environment</a> untuk tampilan desktop. Baca sendiri deh <a href="https://itsfoss.com/best-linux-desktop-environments/">komparasi Desktop Environment</a>, aku juga males karena banyak zzzzzzz. Intinya:</p>
+<blockquote>
+<p>GNOME -&gt; Mirip macOS<br>
+KDE Plasma -&gt; Mirip Windows<br>
+XFCE4 &amp; LXQt -&gt; Ringan</p>
+</blockquote>
+<p><img alt="" src="../../img/profile-2.jpeg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Untuk user NVIDIA, ubah <code>Graphics driver</code> ke <code>Nvidia (proprietary)</code>.
+<img alt="" src="../../img/profile-3.jpeg" /></p>
+</div>
+<h3 id="a-6-audio">A-6. Audio</h3>
+<p>Pilih <code>pipewire</code>
+<img alt="" src="../../img/audio.jpeg" /></p>
+<h3 id="a-7-install">A-7. Install</h3>
+<p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai. </p>
+<p>Bila sudah ada ditampilan "Would you like to chroot into newly installed system?" Pilih <code>no</code> dan kemudian <code>reboot</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># reboot</span>
+</code></pre></div>
+
+<p>Selesai, Arch Linux sudah terinstall.</p>
+<h2 id="b-manual">B. Manual</h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Cara ini lebih berbahaya karena salah ketik bisa berakibat kehilangan data</p>
+</div>
+<h3 id="b-1-disk-partition">B-1. Disk Partition</h3>
+<p>List semua Drive beserta partisinya</p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># fdisk -l</span>
+</code></pre></div>
+
+<p>Maka akan keluar list Drive dan partisi didalamnya</p>
+<div class="codehilite"><pre><span></span><code>Disk<span class="w"> </span>/dev/nvme0n1:<span class="w"> </span><span class="m">238</span>.47<span class="w"> </span>GiB,<span class="w"> </span><span class="m">256060514304</span><span class="w"> </span>bytes,<span class="w"> </span><span class="m">500118192</span><span class="w"> </span>sectors
+Disk<span class="w"> </span>model:<span class="w"> </span>SAMSUNG<span class="w"> </span>MZVLW256HEHP-000L7<span class="w">              </span>
+Units:<span class="w"> </span>sectors<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span>*<span class="w"> </span><span class="nv">512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+Sector<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>logical/physical<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+I/O<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>minimum/optimal<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+Disklabel<span class="w"> </span>type:<span class="w"> </span>gpt
+Disk<span class="w"> </span>identifier:<span class="w"> </span><span class="o">[</span>UUID<span class="o">]</span>
+
+Device<span class="w">             </span>Start<span class="w">       </span>End<span class="w">   </span>Sectors<span class="w">   </span>Size<span class="w"> </span>Type
+/dev/nvme0n1p1<span class="w">      </span><span class="m">2048</span><span class="w">    </span><span class="m">534527</span><span class="w">    </span><span class="m">532480</span><span class="w">   </span>260M<span class="w"> </span>EFI<span class="w"> </span>System
+/dev/nvme0n1p2<span class="w">    </span><span class="m">534528</span><span class="w">    </span><span class="m">567295</span><span class="w">     </span><span class="m">32768</span><span class="w">    </span>16M<span class="w"> </span>Microsoft<span class="w"> </span>reserved
+/dev/nvme0n1p3<span class="w">    </span><span class="m">567296</span><span class="w"> </span><span class="m">134785023</span><span class="w"> </span><span class="m">134217728</span><span class="w">    </span>64G<span class="w"> </span>Microsoft<span class="w"> </span>basic<span class="w"> </span>data
+/dev/nvme0n1p4<span class="w"> </span><span class="m">498069504</span><span class="w"> </span><span class="m">500117503</span><span class="w">   </span><span class="m">2048000</span><span class="w">  </span>1000M<span class="w"> </span>Windows<span class="w"> </span>recovery<span class="w"> </span>environment
+/dev/nvme0n1p5<span class="w"> </span><span class="m">134785024</span><span class="w"> </span><span class="m">136882175</span><span class="w">   </span><span class="m">2097152</span><span class="w">     </span>1G<span class="w"> </span>Linux<span class="w"> </span>filesystem
+/dev/nvme0n1p6<span class="w"> </span><span class="m">136882176</span><span class="w"> </span><span class="m">203991039</span><span class="w">  </span><span class="m">67108864</span><span class="w">    </span>32G<span class="w"> </span>Linux<span class="w"> </span>filesystem
+/dev/nvme0n1p7<span class="w"> </span><span class="m">203991040</span><span class="w"> </span><span class="m">498069503</span><span class="w"> </span><span class="m">294078464</span><span class="w"> </span><span class="m">140</span>.2G<span class="w"> </span>Linux<span class="w"> </span>filesystem
+
+Partition<span class="w"> </span>table<span class="w"> </span>entries<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span><span class="k">in</span><span class="w"> </span>disk<span class="w"> </span>order.
+
+Disk<span class="w"> </span>/dev/sda:<span class="w"> </span><span class="m">465</span>.76<span class="w"> </span>GiB,<span class="w"> </span><span class="m">500107862016</span><span class="w"> </span>bytes,<span class="w"> </span><span class="m">976773168</span><span class="w"> </span>sectors
+Disk<span class="w"> </span>model:<span class="w"> </span>00LPCX-08VHA<span class="w">    </span>
+Units:<span class="w"> </span>sectors<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span>*<span class="w"> </span><span class="nv">512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes
+Sector<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>logical/physical<span class="o">)</span>:<span class="w"> </span><span class="m">512</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">4096</span><span class="w"> </span>bytes
+I/O<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>minimum/optimal<span class="o">)</span>:<span class="w"> </span><span class="m">4096</span><span class="w"> </span>bytes<span class="w"> </span>/<span class="w"> </span><span class="m">4096</span><span class="w"> </span>bytes
+Disklabel<span class="w"> </span>type:<span class="w"> </span>gpt
+Disk<span class="w"> </span>identifier:<span class="w"> </span><span class="o">[</span>UUID<span class="o">]</span>
+
+Device<span class="w">     </span>Start<span class="w">       </span>End<span class="w">   </span>Sectors<span class="w">   </span>Size<span class="w"> </span>Type
+/dev/sda<span class="w">      </span><span class="m">1</span><span class="w">  </span><span class="m">976773168</span><span class="w"> </span><span class="m">976773168</span><span class="w"> </span><span class="m">500</span>.1G<span class="w"> </span>Empty
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Drive NVMe ditandai dengan <code>/dev/nvmeNnX</code> sedangkan Drive SATA ditandai dengan <code>/dev/sdX</code></p>
+</div>
+<p>Misalkan kita ingin installnya di HDD <code>/dev/sda</code>, maka kita buat dulu partisi di <code>/dev/sda</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># fdisk /dev/sda</span>
+</code></pre></div>
+
+<p>Maka akan masuk ke menu fdisk</p>
+<div class="codehilite"><pre><span></span><code>Welcome<span class="w"> </span>to<span class="w"> </span>fdisk<span class="w"> </span><span class="o">(</span>util-linux<span class="w"> </span><span class="m">2</span>.41<span class="o">)</span>.
+Changes<span class="w"> </span>will<span class="w"> </span>remain<span class="w"> </span><span class="k">in</span><span class="w"> </span>memory<span class="w"> </span>only,<span class="w"> </span><span class="k">until</span><span class="w"> </span>you<span class="w"> </span>decide<span class="w"> </span>to<span class="w"> </span>write<span class="w"> </span>them.
+Be<span class="w"> </span>careful<span class="w"> </span>before<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>write<span class="w"> </span>command.
+
+
+Command<span class="w"> </span><span class="o">(</span>m<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="o">)</span>:
+</code></pre></div>
+
+<p>Untuk membuat partisi baru, masukkan command <code>n</code>. Kemudian masukkan nomor partisi (atau tinggal enter saja), First sector (Enter saja), dan Last Sector/Sizenya</p>
+<div class="codehilite"><pre><span></span><code>Command<span class="w"> </span><span class="o">(</span>m<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="o">)</span>:<span class="w"> </span>n
+Partition<span class="w"> </span>number<span class="w"> </span><span class="o">(</span><span class="m">1</span>-128,<span class="w"> </span>default<span class="w"> </span><span class="m">1</span><span class="o">)</span>:
+Last<span class="w"> </span>sector,<span class="w"> </span>+/-sectors<span class="w"> </span>or<span class="w"> </span>+/-size<span class="o">{</span>K,M,G,T,P<span class="o">}</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>-976773134,<span class="w"> </span>default<span class="w"> </span><span class="m">976773119</span><span class="o">)</span>:
+</code></pre></div>
+
+<p>Untuk Last sector partisi <code>/boot</code>, masukkan <code>+1G</code></p>
+<div class="codehilite"><pre><span></span><code>Created<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>partition<span class="w"> </span><span class="m">2</span><span class="w"> </span>of<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s1">&#39;Linux filesystem&#39;</span><span class="w"> </span>and<span class="w"> </span>of<span class="w"> </span>size<span class="w"> </span><span class="m">1</span><span class="w"> </span>GiB.
+</code></pre></div>
+
+<p>Lalu buat lagi partisi-partisi untuk <code>/</code> dan <code>/home</code>, ukuran bisa disesuaikan dengan kebutuhan. (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
+<p>Bila sudah dibuat partisi <code>/</code> dan <code>/home</code> maka masukkan command <code>w</code></p>
+<div class="codehilite"><pre><span></span><code>Command<span class="w"> </span><span class="o">(</span>m<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="o">)</span>:<span class="w"> </span>w
+</code></pre></div>
+
+<p>Jalankan <code>fdisk -l</code> sekali lagi, dan seharusnya seperti ini</p>
+<div class="codehilite"><pre><span></span><code>Device<span class="w">     </span>Start<span class="w">       </span>End<span class="w">   </span>Sectors<span class="w">   </span>Size<span class="w"> </span>Type
+/dev/sda1<span class="w">                                </span>1G<span class="w"> </span>Linux<span class="w"> </span>filesystems
+/dev/sda2<span class="w">                               </span>XXG<span class="w"> </span>Linux<span class="w"> </span>filesystems
+/dev/sda3<span class="w">                               </span>XXG<span class="w"> </span>Linux<span class="w"> </span>filesystems
+</code></pre></div>
+
+<p>Kemudian partisi-partisi itu diformat</p>
+<p>Untuk <code>/boot</code>:</p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># mkfs.fat -F 32 /dev/sda1</span>
+</code></pre></div>
+
+<p>Untuk <code>/</code>:</p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># mkfs.ext4 /dev/sda2</span>
+</code></pre></div>
+
+<p>Untuk <code>/home</code>:</p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># mkfs.ext4 /dev/sda3</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Asumsi jika <code>/dev/sda1</code> adalah <code>/boot</code>, <code>/dev/sda2</code> adalah <code>/</code>, dan <code>/dev/sda3</code> adalah <code>/home</code></p>
+</div>
+<p>Lalu mount semua partisi </p>
+<div class="codehilite"><pre><span></span><code><span class="n">root</span><span class="o">@</span><span class="n">archiso</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="c1"># mount /dev/sda2 /mnt</span>
+<span class="n">root</span><span class="o">@</span><span class="n">archiso</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="c1"># mount --mkdir /dev/sda3 /mnt/home</span>
+<span class="n">root</span><span class="o">@</span><span class="n">archiso</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="c1"># mount --mkdir /dev/sda1 /mnt/boot</span>
+</code></pre></div>
+
+<h3 id="b-1-instalasi-package-penting">B-1. Instalasi Package Penting</h3>
+<p>Untuk menginstall basis Sistem, jalankan perintah <code>pacstrap</code> sebagai berikut</p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># pacstrap -K /mnt base linux linux-firmware</span>
+</code></pre></div>
+
+<h3 id="b-2-konfigurasi">B-2. Konfigurasi</h3>
+<p>Setelah selesai menginstall basis sistem, jalankan <code>genfstab</code> untuk membuat <code>/etc/fstab</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span>
+</code></pre></div>
+
+<p>Kemudian kita bisa <a href="https://wiki.archlinux.org/title/Change_root"><code>chroot</code></a> ke Root baru menggunakan <code>arch-chroot</code></p>
+<div class="codehilite"><pre><span></span><code>root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># arch-chroot /mnt</span>
+</code></pre></div>
+
+<h3 id="b-2a-konfigurasi-waktu">B-2a. Konfigurasi Waktu</h3>
+<p>Untuk konfigurasi Zona Waktu:</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime</span>
+<span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># hwclock --systohc</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Untuk WITA gunakan Asia/Makassar, dan untuk WIT gunakan Asia/Jayapura</p>
+</div>
+<h3 id="b-2b-konfigurasi-sudoers">B-2b. Konfigurasi Sudoers</h3>
+<p>Istall package <code>sudo</code> dan <code>vim</code> lalu </p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># pacman -S sudo vim</span>
+</code></pre></div>
+
+<p>Setelah selesai, jalankan <code>visudo</code> dan hapus <code>#</code> di Line ke 125 (yang ada <code>%wheel</code> nya)</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1">#  visudo</span>
+</code></pre></div>
+
+<h3 id="b-2c-konfigurasi-locale">B-2c. Konfigurasi Locale</h3>
+<p>Lalu atur locale dengan menghapus comment di <code>/etc/locale.gen</code>. Misalnya <code>en_US.UTF-8</code>, maka hapus comment untuk locale <code>en_US</code></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># vim /etc/locale.gen</span>
+</code></pre></div>
+
+<p>Lalu buat locale.conf</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jika menggunakan locale lain, ubah <code>en_US.UTF-8</code> menjadi locale tersebut</p>
+</div>
+<p>Kemudian generate locale dengan <code>locale-gen</code></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># locale-gen</span>
+</code></pre></div>
+
+<h3 id="b-2b-konfigurasi-hostname-dan-user-account">B-2b. Konfigurasi Hostname dan User Account</h3>
+<p>Untuk mengatur hostname, bebas mau ngasih nama apa</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># echo &lt;HOSTNAME&gt; &gt; /etc/hostname</span>
+</code></pre></div>
+
+<p>Untuk membuat user account</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># useradd -m -G users,audio,lp,optical,storage,video,wheel,power -s /bin/bash &lt;USERNAME&gt;</span>
+</code></pre></div>
+
+<h3 id="b-3-setup-bootloader">B-3. Setup Bootloader</h3>
+<p>Sama seperti di cara yang menggunakan <code>archinstall</code>, saya merekomendasikan <code>GRUB</code>. Install package berikut ini:</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># pacman -S grub os-prober efibootmgr</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Untuk sistem yang masih menggunakan BIOS Legacy tidak diperlukan efibootmgr</p>
+</div>
+<p>Lalu kita install GRUB ke <code>/boot</code></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># grub-install --target=x86_64-efi --efi-direction=/boot --bootloader-id=&quot;Arch Linux&quot;</span>
+</code></pre></div>
+
+<p>!! note 
+    Untuk BIOS Legacy, gunakan grub-install --target=i386-pc /dev/sda"</p>
+<p>Lalu generate Config GRUB dengan <code>grub-mkconfig</code></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># grub-mkconfig -o /boot/grub/grub.cfg</span>
+</code></pre></div>
+
+<h3 id="b-4-desktop-environment">B-4. Desktop Environment</h3>
+<p>Install Desktop Environment yang kalian inginkan, <a href="https://wiki.archlinux.org/title/Desktop_environment">list Desktop Environment</a></p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># pacman -S &lt;DE&gt;</span>
+</code></pre></div>
+
+<h3 id="b-5-finishing">B-5. Finishing</h3>
+<p>Keluar dari <code>chroot</code>, unmount partisi, dan reboot</p>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@archiso<span class="w"> </span>/<span class="o">]</span><span class="c1"># exit</span>
+root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># umount -R /mnt</span>
+root@archiso<span class="w"> </span>/<span class="w"> </span><span class="c1"># reboot</span>
+</code></pre></div>
+
+<p>Selagi reboot, berdoa kalian tidak melakukan typo.</p>
+<h2 id="end">## End</h2>
+<p>Mungkin segitu saja panduan instalasi Arch Linux dari saya</p>
+<p>Terimakasih sudah membaca dan see ya!</p>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <footer class="footer" id="center">
+    <p>
+        made by zvlfahmi, using <a href="https://github.com/itclubmanmet/static-site-generator" target="_blank">ITC's SSG</a>
+    </p>
+</footer>
+    
+</body>
+
+</html>

@@ -21,6 +21,75 @@ p {
   width: 100%;
 }
 
+.toc {
+  background-color: #3a3a3a;
+  padding: 1rem;
+  margin: 1rem 0;
+  width:max-content;
+  border-radius: 0.5rem;
+  border-left: 4px solid #3279c0;
+  font-size: medium;
+}
+
+.toc ul {
+  list-style-type: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.toc a {
+  color: #739fcb;
+}
+
+.toc a:hover {
+  color: #2d93ff;
+}
+
+.toc-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #b8b8b8;
+}
+.admonition.danger {
+  background-color: #3f1818;
+  border-left: 4px solid #cc0000;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.admonition.danger p {
+  margin: 0;
+  color: #ff9999;
+}
+
+.admonition.note {
+  background-color: #1a2634;
+  border-left: 4px solid #0050a7;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.admonition.note p {
+  margin: 0;
+  color: #739fcb;
+}
+p.admonition-title {
+  font-weight: bold;
+}
+.admonition.warning {
+  background-color: #382d19;
+  border-left: 4px solid #cc7700;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.admonition.warning p {
+  margin: 0;
+  color: #ffb366;
+}
 img, video, iframe {
   height: auto; 
   border-radius: 0.75rem;
@@ -30,23 +99,40 @@ img, video, iframe {
 
 code {
   background-color: #3a3a3a;
+}
+div.codehilite {
+  background-color: #3a3a3a;
   padding-left: 1rem;
   width: 100%;
   height: auto;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   display: block;
   border-radius: 0.5rem;
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
 
+blockquote {
+  background-color: #3a3a3a;
+  padding: 0.25rem 1rem;
+  margin: 0.25rem 0;
+  border-left: 4px solid #739fcb;
+  border-radius: 0.5rem;
+  color: #b8b8b8;
+  font-style: italic;
+}
 table {
   width: 80vw;
   margin: auto;
   border-collapse: collapse;
   border-radius: 0.5rem;
-  border-color: white;
+  border: 1px solid white;
+}
+
+td, th {
+  border: 1px solid white;
+  padding: 8px;
 }
 
 .newbox{
@@ -104,10 +190,9 @@ This is for screens larger than the min-width
   } */
 
   img, video, .codediv {
-    width: 80vw;
-    position: center;
-    display: block; 
-    height: auto; 
+    display: block;
+    max-height: 60vh;
+    width: auto;
     border-radius: 0.75rem
   }
 }
