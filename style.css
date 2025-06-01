@@ -104,7 +104,9 @@ This is for screens larger than the min-width
   } */
 
   img, video, .codediv {
-    width: auto; 
+    width: 80vw;
+    position: center;
+    display: block; 
     height: auto; 
     border-radius: 0.75rem
   }
