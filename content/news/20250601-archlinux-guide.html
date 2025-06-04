@@ -34,7 +34,7 @@
 <p>Aku ingin nunjukin cara install Arch Linux, <em>so that you can flex your neofetch in r/linux</em></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Saya anggap orang yang ingin install Arch Linux sudah tau cara menggunakan Terminal dan memahami cara untuk install ulang Sistem Operasi</p>
+<p>Saya anggap orang yang ingin install Arch Linux sudah tau cara menggunakan Terminal dan memahami cara kerja sistem operasi Windows dan Linux</p>
 </div>
 <div class="toc">
 <ul>
@@ -372,8 +372,10 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># grub-install --target=x86_64-efi --efi-direction=/boot --bootloader-id=&quot;Arch Linux&quot;</span>
 </code></pre></div>
 
-<p>!! note 
-    Untuk BIOS Legacy, gunakan grub-install --target=i386-pc /dev/sda"</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Untuk BIOS Legacy, gunakan <code>grub-install --target=i386-pc /dev/sda</code></p>
+</div>
 <p>Lalu generate Config GRUB dengan <code>grub-mkconfig</code></p>
 <div class="codehilite"><pre><span></span><code># grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre></div>
