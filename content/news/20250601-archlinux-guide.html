@@ -15,10 +15,10 @@
 </head>
 
 <header>
-    <ul class="topnav"> 
- <li><a href="../../index">zvlfahmi.</a></li>
- <li><a href="../../content/about">About</a></li> 
- </ul>
+    <ul class="topnav">
+        <li><a href="../../index">zvlfahmi.</a></li>
+        <li><a href="../../content/about">About</a></li>
+    </ul>
 </header>
 
 <body>
@@ -72,50 +72,50 @@
 </div>
 <h2 id="prep-internet">Prep - Internet</h2>
 <p>Ada dua metode untuk mendapatkan koneksi internet, yaitu melalui Ethernet atau WiFi. Untuk Ethernet tidak perlu setup tambahan dan hanya perlu dicolokkan ke port Ethernet, namun jika menggunakan WiFi perlu konfigurasi manual menggunakan <code>iwctl</code></p>
-<div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">iwctl</span>
-<span class="o">[</span><span class="n">iwd</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">list</span>
-</code></pre></div>
+<pre class="codehilite"><code># iwctl
+[iwd]# device list
+</code></pre>
 
 <p>Maka akan keluar daftar device Wireless yang ada di komputer, biasanya <code>wlanX</code> atau <code>wlpNsX</code> </p>
-<div class="codehilite"><pre><span></span><code><span class="w">                                    </span>Devices<span class="w">                                   </span>*
+<pre class="codehilite"><code class="language-sh">                                    Devices                                   *
 --------------------------------------------------------------------------------
-<span class="w">  </span>Name<span class="w">                  </span>Address<span class="w">               </span>Powered<span class="w">     </span>Adapter<span class="w">     </span>Mode<span class="w">      </span>
+  Name                  Address               Powered     Adapter     Mode      
 --------------------------------------------------------------------------------
-<span class="w">  </span>wlan0<span class="w">                 </span><span class="m">00</span>:00:00:00:00:00<span class="w">     </span>on<span class="w">          </span>phy0<span class="w">        </span>station<span class="w">   </span>
-</code></pre></div>
+  wlan0                 00:00:00:00:00:00     on          phy0        station   
+</code></pre>
 
 <p>Kita bisa melihat jaringan yang ada disekitar dengan</p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station wlan0 scan</span>
-<span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station wlan0 get-networks</span>
+<pre class="codehilite"><code class="language-sh">[iwd]# station wlan0 scan
+[iwd]# station wlan0 get-networks
 
 --------------------------------------------------------------------------------
-<span class="w">    </span>Network<span class="w"> </span>name<span class="w">                    </span>Security<span class="w">  </span>Signal
+    Network name                    Security  Signal
 --------------------------------------------------------------------------------
-<span class="w">    </span>NamaWiFiMu<span class="w">                      </span>psk<span class="w">       </span>****
-</code></pre></div>
+    NamaWiFiMu                      psk       ****
+</code></pre>
 
 <p>Kemudian kita bisa masuk ke jaringan</p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">iwd</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">station</span><span class="w"> </span><span class="n">wlan0</span><span class="w"> </span><span class="k">connect</span><span class="w"> </span><span class="n">NamaWiFiMu</span>
-</code></pre></div>
+<pre class="codehilite"><code>[iwd]# station wlan0 connect NamaWiFiMu
+</code></pre>
 
 <p>Bila diminta password, maka masukkan saja.</p>
 <p>Kemudian keluar dari <code>iwctl</code></p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">iwd</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="k">exit</span>
-</code></pre></div>
+<pre class="codehilite"><code>[iwd]# exit
+</code></pre>
 
 <p>Untuk mengecek apakah berhasil terkoneksi bisa dicek menggunakan <code>ping</code></p>
-<div class="codehilite"><pre><span></span><code><span class="gh">#</span> ping archlinux.org
+<pre class="codehilite"><code># ping archlinux.org
 PING archlinux.org (95.217.163.246) 56(84) bytes of data.
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=1 ttl=52 time=226 ms
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=52 time=215 ms
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=3 ttl=52 time=246 ms
-</code></pre></div>
+</code></pre>
 
 <p>Done, dan bisa dilanjutkan ke tahap selanjutnya</p>
 <h2 id="a-arch-install-script">A. Arch Install Script</h2>
 <p>Setelah komputer boot ke Terminal dan mendapatkan akses internet, proses instalasi dimulai dengan menjalankan perintah <code>archinstall</code></p>
-<div class="codehilite"><pre><span></span><code># archinstall
-</code></pre></div>
+<pre class="codehilite"><code># archinstall
+</code></pre>
 
 <p><img alt="" src="../../img/archinstall-menu.jpeg" /></p>
 <div class="admonition note">
@@ -192,8 +192,8 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 <h3 id="a-8-install">A-8. Install</h3>
 <p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai. </p>
 <p>Bila sudah ada ditampilan "Would you like to chroot into newly installed system?" Pilih <code>no</code> dan kemudian <code>reboot</code></p>
-<div class="codehilite"><pre><span></span><code># reboot
-</code></pre></div>
+<pre class="codehilite"><code># reboot
+</code></pre>
 
 <p>Selesai, Arch Linux sudah terinstall.</p>
 <h2 id="b-manual">B. Manual</h2>
@@ -203,122 +203,122 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 </div>
 <h3 id="b-1-disk-partition">B-1. Disk Partition</h3>
 <p>List semua Drive beserta partisinya</p>
-<div class="codehilite"><pre><span></span><code># fdisk -l
-</code></pre></div>
+<pre class="codehilite"><code># fdisk -l
+</code></pre>
 
 <p>Maka akan keluar list Drive dan partisi didalamnya</p>
-<div class="codehilite"><pre><span></span><code><span class="k">Disk</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nl">nvme0n1</span><span class="p">:</span><span class="w"> </span><span class="mf">238.47</span><span class="w"> </span><span class="n">GiB</span><span class="p">,</span><span class="w"> </span><span class="mi">256060514304</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="mi">500118192</span><span class="w"> </span><span class="n">sectors</span>
-<span class="k">Disk</span><span class="w"> </span><span class="nl">model</span><span class="p">:</span><span class="w"> </span><span class="n">SAMSUNG</span><span class="w"> </span><span class="n">MZVLW256HEHP</span><span class="o">-</span><span class="mi">000</span><span class="n">L7</span><span class="w">              </span>
-<span class="nl">Units</span><span class="p">:</span><span class="w"> </span><span class="n">sectors</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span>
-<span class="n">Sector</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="p">(</span><span class="n">logical</span><span class="o">/</span><span class="n">physical</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span>
-<span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="p">(</span><span class="n">minimum</span><span class="o">/</span><span class="n">optimal</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span>
-<span class="n">Disklabel</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="n">gpt</span>
-<span class="k">Disk</span><span class="w"> </span><span class="nl">identifier</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">UUID</span><span class="o">]</span>
+<pre class="codehilite"><code>Disk /dev/nvme0n1: 238.47 GiB, 256060514304 bytes, 500118192 sectors
+Disk model: SAMSUNG MZVLW256HEHP-000L7              
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: [UUID]
 
-<span class="n">Device</span><span class="w">             </span><span class="k">Start</span><span class="w">       </span><span class="k">End</span><span class="w">   </span><span class="n">Sectors</span><span class="w">   </span><span class="k">Size</span><span class="w"> </span><span class="n">Type</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p1</span><span class="w">      </span><span class="mi">2048</span><span class="w">    </span><span class="mi">534527</span><span class="w">    </span><span class="mi">532480</span><span class="w">   </span><span class="mi">260</span><span class="n">M</span><span class="w"> </span><span class="n">EFI</span><span class="w"> </span><span class="k">System</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p2</span><span class="w">    </span><span class="mi">534528</span><span class="w">    </span><span class="mi">567295</span><span class="w">     </span><span class="mi">32768</span><span class="w">    </span><span class="mi">16</span><span class="n">M</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">reserved</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p3</span><span class="w">    </span><span class="mi">567296</span><span class="w"> </span><span class="mi">134785023</span><span class="w"> </span><span class="mi">134217728</span><span class="w">    </span><span class="mi">64</span><span class="n">G</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="k">data</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p4</span><span class="w"> </span><span class="mi">498069504</span><span class="w"> </span><span class="mi">500117503</span><span class="w">   </span><span class="mi">2048000</span><span class="w">  </span><span class="mi">1000</span><span class="n">M</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="n">recovery</span><span class="w"> </span><span class="n">environment</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p5</span><span class="w"> </span><span class="mi">134785024</span><span class="w"> </span><span class="mi">136882175</span><span class="w">   </span><span class="mi">2097152</span><span class="w">     </span><span class="mi">1</span><span class="n">G</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">filesystem</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p6</span><span class="w"> </span><span class="mi">136882176</span><span class="w"> </span><span class="mi">203991039</span><span class="w">  </span><span class="mi">67108864</span><span class="w">    </span><span class="mi">32</span><span class="n">G</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">filesystem</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1p7</span><span class="w"> </span><span class="mi">203991040</span><span class="w"> </span><span class="mi">498069503</span><span class="w"> </span><span class="mi">294078464</span><span class="w"> </span><span class="mf">140.2</span><span class="n">G</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="n">filesystem</span>
+Device             Start       End   Sectors   Size Type
+/dev/nvme0n1p1      2048    534527    532480   260M EFI System
+/dev/nvme0n1p2    534528    567295     32768    16M Microsoft reserved
+/dev/nvme0n1p3    567296 134785023 134217728    64G Microsoft basic data
+/dev/nvme0n1p4 498069504 500117503   2048000  1000M Windows recovery environment
+/dev/nvme0n1p5 134785024 136882175   2097152     1G Linux filesystem
+/dev/nvme0n1p6 136882176 203991039  67108864    32G Linux filesystem
+/dev/nvme0n1p7 203991040 498069503 294078464 140.2G Linux filesystem
 
-<span class="k">Partition</span><span class="w"> </span><span class="nc">table</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">disk</span><span class="w"> </span><span class="k">order</span><span class="p">.</span>
+Partition table entries are not in disk order.
 
-<span class="k">Disk</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nl">sda</span><span class="p">:</span><span class="w"> </span><span class="mf">465.76</span><span class="w"> </span><span class="n">GiB</span><span class="p">,</span><span class="w"> </span><span class="mi">500107862016</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="mi">976773168</span><span class="w"> </span><span class="n">sectors</span>
-<span class="k">Disk</span><span class="w"> </span><span class="nl">model</span><span class="p">:</span><span class="w"> </span><span class="mi">00</span><span class="n">LPCX</span><span class="o">-</span><span class="mi">08</span><span class="n">VHA</span><span class="w">    </span>
-<span class="nl">Units</span><span class="p">:</span><span class="w"> </span><span class="n">sectors</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span>
-<span class="n">Sector</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="p">(</span><span class="n">logical</span><span class="o">/</span><span class="n">physical</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">bytes</span>
-<span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="p">(</span><span class="n">minimum</span><span class="o">/</span><span class="n">optimal</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">bytes</span>
-<span class="n">Disklabel</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="n">gpt</span>
-<span class="k">Disk</span><span class="w"> </span><span class="nl">identifier</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">UUID</span><span class="o">]</span>
+Disk /dev/sda: 465.76 GiB, 500107862016 bytes, 976773168 sectors
+Disk model: 00LPCX-08VHA    
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: [UUID]
 
-<span class="n">Device</span><span class="w">     </span><span class="k">Start</span><span class="w">       </span><span class="k">End</span><span class="w">   </span><span class="n">Sectors</span><span class="w">   </span><span class="k">Size</span><span class="w"> </span><span class="n">Type</span>
-<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda</span><span class="w">      </span><span class="mi">1</span><span class="w">  </span><span class="mi">976773168</span><span class="w"> </span><span class="mi">976773168</span><span class="w"> </span><span class="mf">500.1</span><span class="n">G</span><span class="w"> </span><span class="n">Empty</span>
-</code></pre></div>
+Device     Start       End   Sectors   Size Type
+/dev/sda      1  976773168 976773168 500.1G Empty
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Drive NVMe ditandai dengan <code>/dev/nvmeNnX</code> sedangkan Drive SATA ditandai dengan <code>/dev/sdX</code></p>
 </div>
 <p>Misalkan kita ingin installnya di HDD <code>/dev/sda</code>, maka kita buat dulu partisi di <code>/dev/sda</code></p>
-<div class="codehilite"><pre><span></span><code># fdisk /dev/sda
-</code></pre></div>
+<pre class="codehilite"><code># fdisk /dev/sda
+</code></pre>
 
 <p>Maka akan masuk ke menu fdisk</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">Welcome</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">fdisk</span><span class="w"> </span><span class="ss">(</span><span class="nv">util</span><span class="o">-</span><span class="nv">linux</span><span class="w"> </span><span class="mi">2</span>.<span class="mi">41</span><span class="ss">)</span>.
-<span class="nv">Changes</span><span class="w"> </span><span class="nv">will</span><span class="w"> </span><span class="nv">remain</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span><span class="nv">only</span>,<span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">decide</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">write</span><span class="w"> </span><span class="nv">them</span>.
-<span class="nv">Be</span><span class="w"> </span><span class="nv">careful</span><span class="w"> </span><span class="nv">before</span><span class="w"> </span><span class="nv">using</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">write</span><span class="w"> </span><span class="nv">command</span>.
+<pre class="codehilite"><code>Welcome to fdisk (util-linux 2.41).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
 
 
-<span class="nv">Command</span><span class="w"> </span><span class="ss">(</span><span class="nv">m</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">help</span><span class="ss">)</span>:
-</code></pre></div>
+Command (m for help):
+</code></pre>
 
 <p>Untuk membuat partisi baru, masukkan command <code>n</code>. Kemudian masukkan nomor partisi (atau tinggal enter saja), First sector (Enter saja), dan Last Sector/Sizenya</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">Command</span><span class="w"> </span><span class="ss">(</span><span class="nv">m</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">help</span><span class="ss">)</span>:<span class="w"> </span><span class="nv">n</span>
-<span class="nv">Partition</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">128</span>,<span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="mi">1</span><span class="ss">)</span>:
-<span class="nv">Last</span><span class="w"> </span><span class="nv">sector</span>,<span class="w"> </span><span class="o">+/-</span><span class="nv">sectors</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="o">+/-</span><span class="nv">size</span>{<span class="nv">K</span>,<span class="nv">M</span>,<span class="nv">G</span>,<span class="nv">T</span>,<span class="nv">P</span>}<span class="w"> </span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">976773134</span>,<span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="mi">976773119</span><span class="ss">)</span>:
-</code></pre></div>
+<pre class="codehilite"><code>Command (m for help): n
+Partition number (1-128, default 1):
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (1-976773134, default 976773119):
+</code></pre>
 
 <p>Untuk Last sector partisi <code>/boot</code>, masukkan <code>+1G</code></p>
-<div class="codehilite"><pre><span></span><code><span class="nx">Created</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">partition</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">Linux</span><span class="w"> </span><span class="nx">filesystem</span><span class="err">&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nx">GiB</span><span class="p">.</span>
-</code></pre></div>
+<pre class="codehilite"><code>Created a new partition 2 of type 'Linux filesystem' and of size 1 GiB.
+</code></pre>
 
 <p>Lalu buat lagi partisi-partisi untuk <code>/</code> dan <code>/home</code>, ukuran bisa disesuaikan dengan kebutuhan. (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
 <p>Bila sudah dibuat partisi <code>/</code> dan <code>/home</code> maka masukkan command <code>w</code></p>
-<div class="codehilite"><pre><span></span><code><span class="nv">Command</span><span class="w"> </span><span class="ss">(</span><span class="nv">m</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">help</span><span class="ss">)</span>:<span class="w"> </span><span class="nv">w</span>
-</code></pre></div>
+<pre class="codehilite"><code>Command (m for help): w
+</code></pre>
 
 <p>Jalankan <code>fdisk -l</code> sekali lagi, dan seharusnya seperti ini</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">Device</span><span class="w">     </span><span class="nv">Start</span><span class="w">       </span><span class="k">End</span><span class="w">   </span><span class="nv">Sectors</span><span class="w">   </span><span class="nv">Size</span><span class="w"> </span><span class="nv">Type</span>
-<span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">sda1</span><span class="w">                                </span><span class="mi">1</span><span class="nv">G</span><span class="w"> </span><span class="nv">Linux</span><span class="w"> </span><span class="nv">filesystems</span>
-<span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">sda2</span><span class="w">                               </span><span class="nv">XXG</span><span class="w"> </span><span class="nv">Linux</span><span class="w"> </span><span class="nv">filesystems</span>
-<span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">sda3</span><span class="w">                               </span><span class="nv">XXG</span><span class="w"> </span><span class="nv">Linux</span><span class="w"> </span><span class="nv">filesystems</span>
-</code></pre></div>
+<pre class="codehilite"><code>Device     Start       End   Sectors   Size Type
+/dev/sda1                                1G Linux filesystems
+/dev/sda2                               XXG Linux filesystems
+/dev/sda3                               XXG Linux filesystems
+</code></pre>
 
 <p>Kemudian partisi-partisi itu diformat</p>
 <p>Untuk <code>/boot</code>:</p>
-<div class="codehilite"><pre><span></span><code># mkfs.fat -F 32 /dev/sda1
-</code></pre></div>
+<pre class="codehilite"><code># mkfs.fat -F 32 /dev/sda1
+</code></pre>
 
 <p>Untuk <code>/</code>:</p>
-<div class="codehilite"><pre><span></span><code># mkfs.ext4 /dev/sda2
-</code></pre></div>
+<pre class="codehilite"><code># mkfs.ext4 /dev/sda2
+</code></pre>
 
 <p>Untuk <code>/home</code>:</p>
-<div class="codehilite"><pre><span></span><code> # mkfs.ext4 /dev/sda3
-</code></pre></div>
+<pre class="codehilite"><code> # mkfs.ext4 /dev/sda3
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Asumsi jika <code>/dev/sda1</code> adalah <code>/boot</code>, <code>/dev/sda2</code> adalah <code>/</code>, dan <code>/dev/sda3</code> adalah <code>/home</code></p>
 </div>
 <p>Lalu mount semua partisi </p>
-<div class="codehilite"><pre><span></span><code># mount /dev/sda2 /mnt
+<pre class="codehilite"><code># mount /dev/sda2 /mnt
 # mount --mkdir /dev/sda3 /mnt/home
 # mount --mkdir /dev/sda1 /mnt/boot
-</code></pre></div>
+</code></pre>
 
 <h3 id="b-2-instalasi-package-penting">B-2. Instalasi Package Penting</h3>
 <p>Untuk menginstall basis Sistem, jalankan perintah <code>pacstrap</code> sebagai berikut</p>
-<div class="codehilite"><pre><span></span><code># pacstrap -K /mnt base linux linux-firmware
-</code></pre></div>
+<pre class="codehilite"><code># pacstrap -K /mnt base linux linux-firmware
+</code></pre>
 
 <h3 id="b-3-konfigurasi">B-3. Konfigurasi</h3>
 <p>Setelah selesai menginstall basis sistem, jalankan <code>genfstab</code> untuk membuat <code>/etc/fstab</code></p>
-<div class="codehilite"><pre><span></span><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
-</code></pre></div>
+<pre class="codehilite"><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
 
 <p>Kemudian kita bisa <a href="https://wiki.archlinux.org/title/Change_root"><code>chroot</code></a> ke Root baru menggunakan <code>arch-chroot</code></p>
-<div class="codehilite"><pre><span></span><code># arch-chroot /mnt
-</code></pre></div>
+<pre class="codehilite"><code># arch-chroot /mnt
+</code></pre>
 
 <h3 id="b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</h3>
 <p>Untuk konfigurasi Zona Waktu:</p>
-<div class="codehilite"><pre><span></span><code># ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+<pre class="codehilite"><code># ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 # hwclock --systohc
-</code></pre></div>
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -326,71 +326,71 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 </div>
 <h3 id="b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</h3>
 <p>Istall package <code>sudo</code> dan <code>vim</code> lalu </p>
-<div class="codehilite"><pre><span></span><code># pacman -S sudo vim
-</code></pre></div>
+<pre class="codehilite"><code># pacman -S sudo vim
+</code></pre>
 
 <p>Setelah selesai, jalankan <code>visudo</code> dan hapus <code>#</code> di Line ke 125 (yang ada <code>%wheel</code> nya)</p>
-<div class="codehilite"><pre><span></span><code># visudo
-</code></pre></div>
+<pre class="codehilite"><code># visudo
+</code></pre>
 
 <h3 id="b-6-konfigurasi-locale">B-6. Konfigurasi Locale</h3>
 <p>Lalu atur locale dengan menghapus comment di <code>/etc/locale.gen</code>. Misalnya <code>en_US.UTF-8</code>, maka hapus comment untuk locale <code>en_US</code></p>
-<div class="codehilite"><pre><span></span><code># vim /etc/locale.gen
-</code></pre></div>
+<pre class="codehilite"><code># vim /etc/locale.gen
+</code></pre>
 
 <p>Lalu buat locale.conf</p>
-<div class="codehilite"><pre><span></span><code><span class="gh">#</span> echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
-</code></pre></div>
+<pre class="codehilite"><code># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Jika menggunakan locale lain, ubah <code>en_US.UTF-8</code> menjadi locale tersebut</p>
 </div>
 <p>Kemudian generate locale dengan <code>locale-gen</code></p>
-<div class="codehilite"><pre><span></span><code># locale-gen
-</code></pre></div>
+<pre class="codehilite"><code># locale-gen
+</code></pre>
 
 <h3 id="b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</h3>
 <p>Untuk mengatur hostname, bebas mau ngasih nama apa</p>
-<div class="codehilite"><pre><span></span><code># echo &lt;HOSTNAME&gt; &gt; /etc/hostname
-</code></pre></div>
+<pre class="codehilite"><code># echo &lt;HOSTNAME&gt; &gt; /etc/hostname
+</code></pre>
 
 <p>Untuk membuat user account</p>
-<div class="codehilite"><pre><span></span><code># useradd -m -G users,audio,lp,optical,storage,video,wheel,power -s /bin/bash &lt;USERNAME&gt;
-</code></pre></div>
+<pre class="codehilite"><code># useradd -m -G users,audio,lp,optical,storage,video,wheel,power -s /bin/bash &lt;USERNAME&gt;
+</code></pre>
 
 <h3 id="b-8-setup-bootloader">B-8. Setup Bootloader</h3>
 <p>Sama seperti di cara yang menggunakan <code>archinstall</code>, saya merekomendasikan <code>GRUB</code>. Install package berikut ini:</p>
-<div class="codehilite"><pre><span></span><code># pacman -S grub os-prober efibootmgr
-</code></pre></div>
+<pre class="codehilite"><code># pacman -S grub os-prober efibootmgr
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Untuk sistem yang masih menggunakan BIOS Legacy tidak diperlukan efibootmgr</p>
 </div>
 <p>Lalu kita install GRUB ke <code>/boot</code></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># grub-install --target=x86_64-efi --efi-direction=/boot --bootloader-id=&quot;Arch Linux&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code># grub-install --target=x86_64-efi --efi-direction=/boot --bootloader-id=&quot;Arch Linux&quot;
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Untuk BIOS Legacy, gunakan <code>grub-install --target=i386-pc /dev/sda</code></p>
 </div>
 <p>Lalu generate Config GRUB dengan <code>grub-mkconfig</code></p>
-<div class="codehilite"><pre><span></span><code># grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre></div>
+<pre class="codehilite"><code># grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
 
 <h3 id="b-9-desktop-environment">B-9. Desktop Environment</h3>
 <p>Install Desktop Environment yang kalian inginkan, <a href="https://wiki.archlinux.org/title/Desktop_environment">list Desktop Environment</a></p>
-<div class="codehilite"><pre><span></span><code># pacman -S &lt;DE&gt;
-</code></pre></div>
+<pre class="codehilite"><code># pacman -S &lt;DE&gt;
+</code></pre>
 
 <h3 id="b-10-finishing">B-10. Finishing</h3>
 <p>Keluar dari <code>chroot</code>, unmount partisi, dan reboot</p>
-<div class="codehilite"><pre><span></span><code>#<span class="w"> </span><span class="k">exit</span>
-#<span class="w"> </span><span class="nv">umount</span><span class="w"> </span><span class="o">-</span><span class="nv">R</span><span class="w"> </span><span class="o">/</span><span class="nv">mnt</span>
-#<span class="w"> </span><span class="nv">reboot</span>
-</code></pre></div>
+<pre class="codehilite"><code># exit
+# umount -R /mnt
+# reboot
+</code></pre>
 
 <p>Selagi reboot, berdoa kalian tidak melakukan typo.</p>
 <h2 id="end">## End</h2>
