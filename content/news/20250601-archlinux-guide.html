@@ -48,8 +48,9 @@
 <li><a href="#a-4-hostname-dan-user-account">A-4. Hostname dan User Account</a></li>
 <li><a href="#a-5-desktop-environment">A-5. Desktop Environment</a></li>
 <li><a href="#a-6-audio">A-6. Audio</a></li>
-<li><a href="#a-7-zona-waktu">A-7. Zona Waktu</a></li>
-<li><a href="#a-8-install">A-8. Install</a></li>
+<li><a href="#a-7-network">A-7. Network</a></li>
+<li><a href="#a-8-zona-waktu">A-8. Zona Waktu</a></li>
+<li><a href="#a-9-install">A-9. Install</a></li>
 </ul>
 </li>
 <li><a href="#b-manual">B. Manual</a><ul>
@@ -62,7 +63,8 @@
 <li><a href="#b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</a></li>
 <li><a href="#b-8-setup-bootloader">B-8. Setup Bootloader</a></li>
 <li><a href="#b-9-desktop-environment">B-9. Desktop Environment</a></li>
-<li><a href="#b-10-finishing">B-10. Finishing</a></li>
+<li><a href="#b-10-networking">B-10. Networking</a></li>
+<li><a href="#b-11-finishing">B-11. Finishing</a></li>
 </ul>
 </li>
 <li><a href="#end">## End</a></li>
@@ -128,7 +130,7 @@ PING archlinux.org (95.217.163.246) 56(84) bytes of data.
 <h3 id="a-2-disk-partitioning">A-2. Disk Partitioning</h3>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>Partisi NTFS tidak bisa diformat di Linux, bila ingin menggunakan partisi NTFS yang kosong tolong hapus partisinya menggunakan <code>Disk Management</code> di Windows terlebih dahulu</p>
+<p>Partisi NTFS agak bermasalah di Linux, bila ingin menggunakan partisi NTFS yang kosong tolong hapus partisinya menggunakan <code>Disk Management</code> di Windows terlebih dahulu atau <code>parted</code></p>
 </div>
 <p>Kemudian di Menu <code>Disk configurations</code>, pilih <code>Partitioning</code>. Kalian akan diberikan 3 Opsi <code>Use a best-effort default partition layout</code>, <code>Manual Partitioning</code>, dan <code>Pre-mounted configuration</code>. Jika kalian memilih untuk menggunakan 1 OS saja, maka pilihlah opsi pertama. Jika ingin dual-boot, pilihlah opsi kedua.</p>
 <p>Kita akan menggunakan <code>Manual Partitioning</code>, karena bisa atur ukuran partisi sendiri.
@@ -186,10 +188,12 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 <h3 id="a-6-audio">A-6. Audio</h3>
 <p>Pilih <code>pipewire</code>
 <img alt="" src="../../img/audio.jpeg" /></p>
-<h3 id="a-7-zona-waktu">A-7. Zona Waktu</h3>
+<h3 id="a-7-network">A-7. Network</h3>
+<p>Pilih <code>NetworkManager</code></p>
+<h3 id="a-8-zona-waktu">A-8. Zona Waktu</h3>
 <p>Sesuaikan dengan Zona Waktu sekitar, WIB menggunakan Asia/Jakarta, WITA menggunakan Asia/Makassar dan WIT menggunakan Asia/Jayapura
 <img alt="" src="../../img/timezone.jpeg" /></p>
-<h3 id="a-8-install">A-8. Install</h3>
+<h3 id="a-9-install">A-9. Install</h3>
 <p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai. </p>
 <p>Bila sudah ada ditampilan "Would you like to chroot into newly installed system?" Pilih <code>no</code> dan kemudian <code>reboot</code></p>
 <pre class="codehilite"><code># reboot
@@ -385,7 +389,13 @@ Last sector, +/-sectors or +/-size{K,M,G,T,P} (1-976773134, default 976773119):
 <pre class="codehilite"><code># pacman -S &lt;DE&gt;
 </code></pre>
 
-<h3 id="b-10-finishing">B-10. Finishing</h3>
+<h3 id="b-10-networking">B-10. Networking</h3>
+<p>Install package <code>networkmanager</code> kemudian aktifkan servicenya</p>
+<pre class="codehilite"><code># pacman -S networkmanager
+# systemctl enable NetworkManager
+</code></pre>
+
+<h3 id="b-11-finishing">B-11. Finishing</h3>
 <p>Keluar dari <code>chroot</code>, unmount partisi, dan reboot</p>
 <pre class="codehilite"><code># exit
 # umount -R /mnt
