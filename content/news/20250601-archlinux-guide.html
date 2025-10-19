@@ -34,7 +34,7 @@
 <p>Aku ingin nunjukin cara install Arch Linux, <em>so that you can flex your neofetch in r/linux</em></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Saya anggap orang yang ingin install Arch Linux sudah tau cara menggunakan Terminal dan memahami cara kerja sistem operasi Windows dan Linux</p>
+<p>Saya anggap orang yang ingin install Arch Linux memiliki pengalaman menggunakan terminal linux, serta pengeatahuan tentang komputer.</p>
 </div>
 <div class="toc">
 <ul>
@@ -78,12 +78,12 @@
 [iwd]# device list
 </code></pre>
 
-<p>Maka akan keluar daftar device Wireless yang ada di komputer, biasanya <code>wlanX</code> atau <code>wlpNsX</code> </p>
+<p>Maka akan keluar daftar device Wireless yang ada di komputer, biasanya <code>wlanX</code> atau <code>wlpNsX</code></p>
 <pre class="codehilite"><code class="language-sh">                                    Devices                                   *
 --------------------------------------------------------------------------------
-  Name                  Address               Powered     Adapter     Mode      
+  Name                  Address               Powered     Adapter     Mode
 --------------------------------------------------------------------------------
-  wlan0                 00:00:00:00:00:00     on          phy0        station   
+  wlan0                 00:00:00:00:00:00     on          phy0        station
 </code></pre>
 
 <p>Kita bisa melihat jaringan yang ada disekitar dengan</p>
@@ -132,7 +132,7 @@ PING archlinux.org (95.217.163.246) 56(84) bytes of data.
 <p class="admonition-title">Danger</p>
 <p>Partisi NTFS agak bermasalah di Linux, bila ingin menggunakan partisi NTFS yang kosong tolong hapus partisinya menggunakan <code>Disk Management</code> di Windows terlebih dahulu atau <code>parted</code></p>
 </div>
-<p>Kemudian di Menu <code>Disk configurations</code>, pilih <code>Partitioning</code>. Kalian akan diberikan 3 Opsi <code>Use a best-effort default partition layout</code>, <code>Manual Partitioning</code>, dan <code>Pre-mounted configuration</code>. Jika kalian memilih untuk menggunakan 1 OS saja, maka pilihlah opsi pertama. Jika ingin dual-boot, pilihlah opsi kedua.</p>
+<p>Kemudian di Menu <code>Disk configurations</code>, pilih <code>Partitioning</code>. Kalian akan diberikan 3 Opsi <code>Use a best-effort default partition layout</code>, <code>Manual Partitioning</code>, dan <code>Pre-mounted configuration</code>. Jika kalian memilih untuk menggunakan 1 OS saja, maka pilihlah opsi <code>Use a best-effort default partition layout</code>. Jika ingin dual-boot, pilihlah <code>Manual Partitioning</code>.</p>
 <p>Kita akan menggunakan <code>Manual Partitioning</code>, karena bisa atur ukuran partisi sendiri.
 <img alt="" src="../../img/partition-1.jpeg" /></p>
 <p>Pilih Storage device untuk instalasi Arch
@@ -164,14 +164,14 @@ PING archlinux.org (95.217.163.246) 56(84) bytes of data.
 <img alt="" src="../../img/user-4.jpeg" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Akses <code>sudo</code> ekuivalen dengan Administrator di Windows. </p>
+<p>Akses <code>sudo</code> ekuivalen dengan Administrator di Windows.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Kalian bisa gunakan <code>Root account</code> dengan mengatur <code>Root password</code> (tepat di atas <code>User account</code>) jika kalian tidak ingin akun kalian diberi akses superuser</p>
 </div>
 <h3 id="a-5-desktop-environment">A-5. Desktop Environment</h3>
-<p>Di menu <code>Profile</code> kalian bisa memilih Tipe instalasi, kita pilih <code>Desktop</code>. 
+<p>Di menu <code>Profile</code> kalian bisa memilih Tipe instalasi, kita pilih <code>Desktop</code>.
 <img alt="" src="../../img/profile-1.jpeg" /></p>
 <p>Kalian akan disuguhkan dengan opsi yang banyak sekali, itu semua adalah <a href="https://wiki.archlinux.org/title/Desktop_environment">Desktop Environment</a> untuk tampilan desktop. Baca sendiri deh <a href="https://itsfoss.com/best-linux-desktop-environments/">komparasi Desktop Environment</a>, aku juga males karena banyak banget zzzzzzz. Intinya:</p>
 <blockquote>
@@ -189,12 +189,12 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 <p>Pilih <code>pipewire</code>
 <img alt="" src="../../img/audio.jpeg" /></p>
 <h3 id="a-7-network">A-7. Network</h3>
-<p>Pilih <code>NetworkManager</code></p>
+<p>Pada bagian <code>Network configuration</code>, pilih <code>NetworkManager</code> (sangat penting)</p>
 <h3 id="a-8-zona-waktu">A-8. Zona Waktu</h3>
 <p>Sesuaikan dengan Zona Waktu sekitar, WIB menggunakan Asia/Jakarta, WITA menggunakan Asia/Makassar dan WIT menggunakan Asia/Jayapura
 <img alt="" src="../../img/timezone.jpeg" /></p>
 <h3 id="a-9-install">A-9. Install</h3>
-<p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai. </p>
+<p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai.</p>
 <p>Bila sudah ada ditampilan "Would you like to chroot into newly installed system?" Pilih <code>no</code> dan kemudian <code>reboot</code></p>
 <pre class="codehilite"><code># reboot
 </code></pre>
@@ -212,7 +212,7 @@ XFCE4 &amp; LXQt -&gt; Ringan</p>
 
 <p>Maka akan keluar list Drive dan partisi didalamnya</p>
 <pre class="codehilite"><code>Disk /dev/nvme0n1: 238.47 GiB, 256060514304 bytes, 500118192 sectors
-Disk model: SAMSUNG MZVLW256HEHP-000L7              
+Disk model: SAMSUNG MZVLW256HEHP-000L7
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
@@ -231,7 +231,7 @@ Device             Start       End   Sectors   Size Type
 Partition table entries are not in disk order.
 
 Disk /dev/sda: 465.76 GiB, 500107862016 bytes, 976773168 sectors
-Disk model: 00LPCX-08VHA    
+Disk model: 00LPCX-08VHA
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 4096 bytes
 I/O size (minimum/optimal): 4096 bytes / 4096 bytes
@@ -244,7 +244,7 @@ Device     Start       End   Sectors   Size Type
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Drive NVMe ditandai dengan <code>/dev/nvmeNnX</code> sedangkan Drive SATA ditandai dengan <code>/dev/sdX</code></p>
+<p>Drive NVMe ditandai dengan <code>/dev/nvmeNnX</code> sedangkan Drive SATA ditandai dengan <code>/dev/sdX</code>, untuk device dengan eMMC mungkin disk akan di mount dengan <code>/dev/mmcblkN</code></p>
 </div>
 <p>Misalkan kita ingin installnya di HDD <code>/dev/sda</code>, maka kita buat dulu partisi di <code>/dev/sda</code></p>
 <pre class="codehilite"><code># fdisk /dev/sda
@@ -298,7 +298,7 @@ Last sector, +/-sectors or +/-size{K,M,G,T,P} (1-976773134, default 976773119):
 <p class="admonition-title">Note</p>
 <p>Asumsi jika <code>/dev/sda1</code> adalah <code>/boot</code>, <code>/dev/sda2</code> adalah <code>/</code>, dan <code>/dev/sda3</code> adalah <code>/home</code></p>
 </div>
-<p>Lalu mount semua partisi </p>
+<p>Lalu mount semua partisi</p>
 <pre class="codehilite"><code># mount /dev/sda2 /mnt
 # mount --mkdir /dev/sda3 /mnt/home
 # mount --mkdir /dev/sda1 /mnt/boot
@@ -329,7 +329,7 @@ Last sector, +/-sectors or +/-size{K,M,G,T,P} (1-976773134, default 976773119):
 <p>Untuk WITA gunakan Asia/Makassar, dan untuk WIT gunakan Asia/Jayapura</p>
 </div>
 <h3 id="b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</h3>
-<p>Istall package <code>sudo</code> dan <code>vim</code> lalu </p>
+<p>Istall package <code>sudo</code> dan <code>vim</code> lalu</p>
 <pre class="codehilite"><code># pacman -S sudo vim
 </code></pre>
 
