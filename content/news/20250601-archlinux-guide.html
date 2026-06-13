@@ -2,13 +2,14 @@
 <html lang="id">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:type" content="website"/>
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="https://zvlfahmi.github.io/img/arch.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
     <link href="../../style.css" rel="stylesheet">
     <link rel="icon" href="../../img/icon.png">
     <title>Panduan Instalasi Arch Linux</title>
@@ -22,72 +23,80 @@
 </header>
 
 <body>
-    
-<h1 id="panduan-instalasi-arch-linux">Panduan Instalasi Arch Linux</h1>
-<h3 id="2025-06-01-120425">2025-06-01 12:04:25</h3>
-<!-- no toc -->
 
-<p><img alt="" src="../../img/arch.png" /></p>
-<blockquote>
-<p>I use arch btw</p>
-</blockquote>
-<p>Aku ingin nunjukin cara install Arch Linux, <em>so that you can flex your neofetch in r/linux</em></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Saya anggap orang yang ingin install Arch Linux memiliki pengalaman menggunakan terminal linux, serta pengeatahuan tentang komputer.</p>
-</div>
-<div class="toc">
-<ul>
-<li><a href="#panduan-instalasi-arch-linux">Panduan Instalasi Arch Linux</a><ul>
-<li><a href="#2025-06-01-120425">2025-06-01 12:04:25</a></li>
-<li><a href="#prep-internet">Prep - Internet</a></li>
-<li><a href="#a-arch-install-script">A. Arch Install Script</a><ul>
-<li><a href="#a-1-repository">A-1. Repository</a></li>
-<li><a href="#a-2-disk-partitioning">A-2. Disk Partitioning</a></li>
-<li><a href="#a-3-bootloader">A-3. Bootloader</a></li>
-<li><a href="#a-4-hostname-dan-user-account">A-4. Hostname dan User Account</a></li>
-<li><a href="#a-5-desktop-environment">A-5. Desktop Environment</a></li>
-<li><a href="#a-6-audio">A-6. Audio</a></li>
-<li><a href="#a-7-network">A-7. Network</a></li>
-<li><a href="#a-8-zona-waktu">A-8. Zona Waktu</a></li>
-<li><a href="#a-9-install">A-9. Install</a></li>
-</ul>
-</li>
-<li><a href="#b-manual">B. Manual</a><ul>
-<li><a href="#b-1-disk-partition">B-1. Disk Partition</a></li>
-<li><a href="#b-2-instalasi-package-penting">B-2. Instalasi Package Penting</a></li>
-<li><a href="#b-3-konfigurasi">B-3. Konfigurasi</a></li>
-<li><a href="#b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</a></li>
-<li><a href="#b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</a></li>
-<li><a href="#b-6-konfigurasi-locale">B-6. Konfigurasi Locale</a></li>
-<li><a href="#b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</a></li>
-<li><a href="#b-8-setup-bootloader">B-8. Setup Bootloader</a></li>
-<li><a href="#b-9-desktop-environment">B-9. Desktop Environment</a></li>
-<li><a href="#b-10-networking">B-10. Networking</a></li>
-<li><a href="#b-11-finishing">B-11. Finishing</a></li>
-</ul>
-</li>
-<li><a href="#end">## End</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<h2 id="prep-internet">Prep - Internet</h2>
-<p>Ada dua metode untuk mendapatkan koneksi internet, yaitu melalui Ethernet atau WiFi. Untuk Ethernet tidak perlu setup tambahan dan hanya perlu dicolokkan ke port Ethernet, namun jika menggunakan WiFi perlu konfigurasi manual menggunakan <code>iwctl</code></p>
-<pre class="codehilite"><code># iwctl
+    <h1 id="panduan-instalasi-arch-linux">Panduan Instalasi Arch Linux</h1>
+    <h3 id="2025-06-01-120425">2025-06-01 12:04:25</h3>
+    <!-- no toc -->
+
+    <p><img alt="" src="../../img/arch.png" /></p>
+    <blockquote>
+        <p>I use arch btw</p>
+    </blockquote>
+    <p>Aku ingin nunjukin cara install Arch Linux, <em>so that you can flex your neofetch in r/linux</em></p>
+    <div class="admonition warning">
+        <p class="admonition-title">Warning</p>
+        <p>Saya anggap orang yang ingin install Arch Linux memiliki pengalaman menggunakan terminal linux, serta
+            pengeatahuan tentang komputer.</p>
+    </div>
+    <div class="toc">
+        <ul>
+            <li><a href="#panduan-instalasi-arch-linux">Panduan Instalasi Arch Linux</a>
+                <ul>
+                    <li><a href="#2025-06-01-120425">2025-06-01 12:04:25</a></li>
+                    <li><a href="#prep-internet">Prep - Internet</a></li>
+                    <li><a href="#a-arch-install-script">A. Arch Install Script</a>
+                        <ul>
+                            <li><a href="#a-1-repository">A-1. Repository</a></li>
+                            <li><a href="#a-2-disk-partitioning">A-2. Disk Partitioning</a></li>
+                            <li><a href="#a-3-bootloader">A-3. Bootloader</a></li>
+                            <li><a href="#a-4-hostname-dan-user-account">A-4. Hostname dan User Account</a></li>
+                            <li><a href="#a-5-desktop-environment">A-5. Desktop Environment</a></li>
+                            <li><a href="#a-6-audio">A-6. Audio</a></li>
+                            <li><a href="#a-7-network">A-7. Network</a></li>
+                            <li><a href="#a-8-zona-waktu">A-8. Zona Waktu</a></li>
+                            <li><a href="#a-9-install">A-9. Install</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#b-manual">B. Manual</a>
+                        <ul>
+                            <li><a href="#b-1-disk-partition">B-1. Disk Partition</a></li>
+                            <li><a href="#b-2-instalasi-package-penting">B-2. Instalasi Package Penting</a></li>
+                            <li><a href="#b-3-konfigurasi">B-3. Konfigurasi</a></li>
+                            <li><a href="#b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</a></li>
+                            <li><a href="#b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</a></li>
+                            <li><a href="#b-6-konfigurasi-locale">B-6. Konfigurasi Locale</a></li>
+                            <li><a href="#b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User
+                                    Account</a></li>
+                            <li><a href="#b-8-setup-bootloader">B-8. Setup Bootloader</a></li>
+                            <li><a href="#b-9-desktop-environment">B-9. Desktop Environment</a></li>
+                            <li><a href="#b-10-networking">B-10. Networking</a></li>
+                            <li><a href="#b-11-finishing">B-11. Finishing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#end">## End</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h2 id="prep-internet">Prep - Internet</h2>
+    <p>Ada dua metode untuk mendapatkan koneksi internet, yaitu melalui Ethernet atau WiFi. Untuk Ethernet tidak perlu
+        setup tambahan dan hanya perlu dicolokkan ke port Ethernet, namun jika menggunakan WiFi perlu konfigurasi manual
+        menggunakan <code>iwctl</code></p>
+    <pre class="codehilite"><code># iwctl
 [iwd]# device list
 </code></pre>
 
-<p>Maka akan keluar daftar device Wireless yang ada di komputer, biasanya <code>wlanX</code> atau <code>wlpNsX</code></p>
-<pre class="codehilite"><code class="language-sh">                                    Devices                                   *
+    <p>Maka akan keluar daftar device Wireless yang ada di komputer, biasanya <code>wlanX</code> atau
+        <code>wlpNsX</code></p>
+    <pre class="codehilite"><code class="language-sh">                                    Devices                                   *
 --------------------------------------------------------------------------------
   Name                  Address               Powered     Adapter     Mode
 --------------------------------------------------------------------------------
   wlan0                 00:00:00:00:00:00     on          phy0        station
 </code></pre>
 
-<p>Kita bisa melihat jaringan yang ada disekitar dengan</p>
-<pre class="codehilite"><code class="language-sh">[iwd]# station wlan0 scan
+    <p>Kita bisa melihat jaringan yang ada disekitar dengan</p>
+    <pre class="codehilite"><code class="language-sh">[iwd]# station wlan0 scan
 [iwd]# station wlan0 get-networks
 
 --------------------------------------------------------------------------------
@@ -96,122 +105,155 @@
     NamaWiFiMu                      psk       ****
 </code></pre>
 
-<p>Kemudian kita bisa masuk ke jaringan</p>
-<pre class="codehilite"><code>[iwd]# station wlan0 connect NamaWiFiMu
+    <p>Kemudian kita bisa masuk ke jaringan</p>
+    <pre class="codehilite"><code>[iwd]# station wlan0 connect NamaWiFiMu
 </code></pre>
 
-<p>Bila diminta password, maka masukkan saja.</p>
-<p>Kemudian keluar dari <code>iwctl</code></p>
-<pre class="codehilite"><code>[iwd]# exit
+    <p>Bila diminta password, maka masukkan saja.</p>
+    <p>Kemudian keluar dari <code>iwctl</code></p>
+    <pre class="codehilite"><code>[iwd]# exit
 </code></pre>
 
-<p>Untuk mengecek apakah berhasil terkoneksi bisa dicek menggunakan <code>ping</code></p>
-<pre class="codehilite"><code># ping archlinux.org
+    <p>Untuk mengecek apakah berhasil terkoneksi bisa dicek menggunakan <code>ping</code></p>
+    <pre class="codehilite"><code># ping archlinux.org
 PING archlinux.org (95.217.163.246) 56(84) bytes of data.
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=1 ttl=52 time=226 ms
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=52 time=215 ms
 64 bytes from archlinux.org (95.217.163.246): icmp_seq=3 ttl=52 time=246 ms
 </code></pre>
 
-<p>Done, dan bisa dilanjutkan ke tahap selanjutnya</p>
-<h2 id="a-arch-install-script">A. Arch Install Script</h2>
-<p>Setelah komputer boot ke Terminal dan mendapatkan akses internet, proses instalasi dimulai dengan menjalankan perintah <code>archinstall</code></p>
-<pre class="codehilite"><code># archinstall
+    <p>Done, dan bisa dilanjutkan ke tahap selanjutnya</p>
+    <h2 id="a-arch-install-script">A. Arch Install Script</h2>
+    <p>Setelah komputer boot ke Terminal dan mendapatkan akses internet, proses instalasi dimulai dengan menjalankan
+        perintah <code>archinstall</code></p>
+    <pre class="codehilite"><code># archinstall
 </code></pre>
 
-<p><img alt="" src="../../img/archinstall-menu.jpeg" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Gunakan arrow keys di keyboard untuk navigasi menu, Spasi untuk memilih opsi, Enter untuk konfirmasi</p>
-</div>
-<h3 id="a-1-repository">A-1. Repository</h3>
-<p>Di Menu <code>Mirror and repositories</code>, pilih <code>Select regions</code> dan pilih <code>Indonesia</code> kemudian Enter dan <code>Back</code></p>
-<p><img alt="" src="../../img/archinstall-mirror.jpeg" /></p>
-<h3 id="a-2-disk-partitioning">A-2. Disk Partitioning</h3>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>Partisi NTFS agak bermasalah di Linux, bila ingin menggunakan partisi NTFS yang kosong tolong hapus partisinya menggunakan <code>Disk Management</code> di Windows terlebih dahulu atau <code>parted</code></p>
-</div>
-<p>Kemudian di Menu <code>Disk configurations</code>, pilih <code>Partitioning</code>. Kalian akan diberikan 3 Opsi <code>Use a best-effort default partition layout</code>, <code>Manual Partitioning</code>, dan <code>Pre-mounted configuration</code>. Jika kalian memilih untuk menggunakan 1 OS saja, maka pilihlah opsi <code>Use a best-effort default partition layout</code>. Jika ingin dual-boot, pilihlah <code>Manual Partitioning</code>.</p>
-<p>Kita akan menggunakan <code>Manual Partitioning</code>, karena bisa atur ukuran partisi sendiri.
-<img alt="" src="../../img/partition-1.jpeg" /></p>
-<p>Pilih Storage device untuk instalasi Arch
-<img alt="" src="../../img/partition-2.jpeg" /></p>
-<p>Select yang <code>free</code> kemudian Enter
-<img alt="" src="../../img/partition-5.jpeg" /></p>
-<p>Partisi yang pertama adalah <code>/boot</code>, masukkan ukuran partisinya minimum 500MiB (direkomendasikan 1GiB)
-<img alt="" src="../../img/partition-4.jpeg" /></p>
-<p>Atur Mountpoint di <code>/boot</code> (untuk <code>/</code> ya masukkan <code>/</code>, kalau <code>/home</code> masukkan <code>/home</code> )
-<img alt="" src="../../img/partition-7.jpeg" /></p>
-<p>Pilih <code>fat32</code>
-<img alt="" src="../../img/partition-3.jpeg" /></p>
-<p>Lalu ulangi prosesnya untuk membuat <code>/</code> (root) dan <code>/home</code>, caranya sama seperti membuat partisi <code>/boot</code> namun pilihlah filesystem <code>ext4</code> dan ukuran <code>/</code> dan <code>/home</code> bisa disesuaikan dengan kebutuhan (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
-<p><img alt="" src="../../img/partition-6.jpeg" /></p>
-<p>Confirm and Exit</p>
-<h3 id="a-3-bootloader">A-3. Bootloader</h3>
-<p>Untuk bootloader saya rekomendasikan menggunakan <code>GRUB</code> (i never got <code>systemd-boot</code> working lmao)
-<img alt="" src="../../img/bootloader.jpeg" /></p>
-<h3 id="a-4-hostname-dan-user-account">A-4. Hostname dan User Account</h3>
-<p>Untuk Hostname sih terserah ya, ini adalah nama komputer yang akan terlihat di WiFi dan Bluetooth
-<img alt="" src="../../img/hostname.jpeg" /></p>
-<p>Kemudian di Menu User account, pilih <code>Add User</code>
-<img alt="" src="../../img/user-1.jpeg" /></p>
-<p>Lalu masukkan usernamenya
-<img alt="" src="../../img/user-2.jpeg" /></p>
-<p>Masukkan passwordnya
-<img alt="" src="../../img/user-3.jpeg" /></p>
-<p>Pilih <code>yes</code>
-<img alt="" src="../../img/user-4.jpeg" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Akses <code>sudo</code> ekuivalen dengan Administrator di Windows.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Kalian bisa gunakan <code>Root account</code> dengan mengatur <code>Root password</code> (tepat di atas <code>User account</code>) jika kalian tidak ingin akun kalian diberi akses superuser</p>
-</div>
-<h3 id="a-5-desktop-environment">A-5. Desktop Environment</h3>
-<p>Di menu <code>Profile</code> kalian bisa memilih Tipe instalasi, kita pilih <code>Desktop</code>.
-<img alt="" src="../../img/profile-1.jpeg" /></p>
-<p>Kalian akan disuguhkan dengan opsi yang banyak sekali, itu semua adalah <a href="https://wiki.archlinux.org/title/Desktop_environment">Desktop Environment</a> untuk tampilan desktop. Baca sendiri deh <a href="https://itsfoss.com/best-linux-desktop-environments/">komparasi Desktop Environment</a>, aku juga males karena banyak banget zzzzzzz. Intinya:</p>
-<blockquote>
-<p>GNOME -&gt; Mirip macOS<br>
-KDE Plasma -&gt; Mirip Windows<br>
-XFCE4 &amp; LXQt -&gt; Ringan</p>
-</blockquote>
-<p><img alt="" src="../../img/profile-2.jpeg" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Untuk user NVIDIA, ubah <code>Graphics driver</code> ke <code>Nvidia (proprietary)</code>.
-<img alt="" src="../../img/profile-3.jpeg" /></p>
-</div>
-<h3 id="a-6-audio">A-6. Audio</h3>
-<p>Pilih <code>pipewire</code>
-<img alt="" src="../../img/audio.jpeg" /></p>
-<h3 id="a-7-network">A-7. Network</h3>
-<p>Pada bagian <code>Network configuration</code>, pilih <code>NetworkManager</code> (sangat penting)</p>
-<h3 id="a-8-zona-waktu">A-8. Zona Waktu</h3>
-<p>Sesuaikan dengan Zona Waktu sekitar, WIB menggunakan Asia/Jakarta, WITA menggunakan Asia/Makassar dan WIT menggunakan Asia/Jayapura
-<img alt="" src="../../img/timezone.jpeg" /></p>
-<h3 id="a-9-install">A-9. Install</h3>
-<p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai.</p>
-<p>Bila sudah ada ditampilan "Would you like to chroot into newly installed system?" Pilih <code>no</code> dan kemudian <code>reboot</code></p>
-<pre class="codehilite"><code># reboot
+    <p><img alt="" src="../../img/archinstall-menu.jpeg" /></p>
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Gunakan arrow keys di keyboard untuk navigasi menu, Spasi untuk memilih opsi, Enter untuk konfirmasi</p>
+    </div>
+    <h3 id="a-1-repository">A-1. Repository</h3>
+    <p>Di Menu <code>Mirror and repositories</code>, pilih <code>Select regions</code> dan pilih <code>Indonesia</code>
+        kemudian Enter dan <code>Back</code></p>
+    <p><img alt="" src="../../img/archinstall-mirror.jpeg" /></p>
+    <h3 id="a-2-disk-partitioning">A-2. Disk Partitioning</h3>
+    <div class="admonition danger">
+        <p class="admonition-title">Danger</p>
+        <p>Partisi NTFS agak bermasalah di Linux, bila ingin menggunakan partisi NTFS yang kosong tolong hapus
+            partisinya menggunakan <code>Disk Management</code> di Windows terlebih dahulu atau <code>parted</code></p>
+    </div>
+    <p>Kemudian di Menu <code>Disk configurations</code>, pilih <code>Partitioning</code>. Kalian akan diberikan 3 Opsi
+        <code>Use a best-effort default partition layout</code>, <code>Manual Partitioning</code>, dan
+        <code>Pre-mounted configuration</code>. Jika kalian memilih untuk menggunakan 1 OS saja, maka pilihlah opsi
+        <code>Use a best-effort default partition layout</code>. Jika ingin dual-boot, pilihlah
+        <code>Manual Partitioning</code>.</p>
+    <p>Kita akan menggunakan <code>Manual Partitioning</code>, karena bisa atur ukuran partisi sendiri.
+        <img alt="" src="../../img/partition-1.jpeg" />
+    </p>
+    <p>Pilih Storage device untuk instalasi Arch
+        <img alt="" src="../../img/partition-2.jpeg" />
+    </p>
+    <p>Select yang <code>free</code> kemudian Enter
+        <img alt="" src="../../img/partition-5.jpeg" />
+    </p>
+    <p>Partisi yang pertama adalah <code>/boot</code>, masukkan ukuran partisinya minimum 500MiB (direkomendasikan 1GiB)
+        <img alt="" src="../../img/partition-4.jpeg" />
+    </p>
+    <p>Atur Mountpoint di <code>/boot</code> (untuk <code>/</code> ya masukkan <code>/</code>, kalau <code>/home</code>
+        masukkan <code>/home</code> )
+        <img alt="" src="../../img/partition-7.jpeg" />
+    </p>
+    <p>Pilih <code>fat32</code>
+        <img alt="" src="../../img/partition-3.jpeg" />
+    </p>
+    <p>Lalu ulangi prosesnya untuk membuat <code>/</code> (root) dan <code>/home</code>, caranya sama seperti membuat
+        partisi <code>/boot</code> namun pilihlah filesystem <code>ext4</code> dan ukuran <code>/</code> dan
+        <code>/home</code> bisa disesuaikan dengan kebutuhan (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
+    <p><img alt="" src="../../img/partition-6.jpeg" /></p>
+    <p>Confirm and Exit</p>
+    <h3 id="a-3-bootloader">A-3. Bootloader</h3>
+    <p>Untuk bootloader saya rekomendasikan menggunakan <code>GRUB</code> (i never got <code>systemd-boot</code> working
+        lmao)
+        <img alt="" src="../../img/bootloader.jpeg" />
+    </p>
+    <h3 id="a-4-hostname-dan-user-account">A-4. Hostname dan User Account</h3>
+    <p>Untuk Hostname sih terserah ya, ini adalah nama komputer yang akan terlihat di WiFi dan Bluetooth
+        <img alt="" src="../../img/hostname.jpeg" />
+    </p>
+    <p>Kemudian di Menu User account, pilih <code>Add User</code>
+        <img alt="" src="../../img/user-1.jpeg" />
+    </p>
+    <p>Lalu masukkan usernamenya
+        <img alt="" src="../../img/user-2.jpeg" />
+    </p>
+    <p>Masukkan passwordnya
+        <img alt="" src="../../img/user-3.jpeg" />
+    </p>
+    <p>Pilih <code>yes</code>
+        <img alt="" src="../../img/user-4.jpeg" />
+    </p>
+    <div class="admonition warning">
+        <p class="admonition-title">Warning</p>
+        <p>Akses <code>sudo</code> ekuivalen dengan Administrator di Windows.</p>
+    </div>
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Kalian bisa gunakan <code>Root account</code> dengan mengatur <code>Root password</code> (tepat di atas
+            <code>User account</code>) jika kalian tidak ingin akun kalian diberi akses superuser</p>
+    </div>
+    <h3 id="a-5-desktop-environment">A-5. Desktop Environment</h3>
+    <p>Di menu <code>Profile</code> kalian bisa memilih Tipe instalasi, kita pilih <code>Desktop</code>.
+        <img alt="" src="../../img/profile-1.jpeg" />
+    </p>
+    <p>Kalian akan disuguhkan dengan opsi yang banyak sekali, itu semua adalah <a
+            href="https://wiki.archlinux.org/title/Desktop_environment">Desktop Environment</a> untuk tampilan desktop.
+        Baca sendiri deh <a href="https://itsfoss.com/best-linux-desktop-environments/">komparasi Desktop
+            Environment</a>, aku juga males karena banyak banget zzzzzzz. Intinya:</p>
+    <blockquote>
+        <p>GNOME -&gt; Mirip macOS<br>
+            KDE Plasma -&gt; Mirip Windows<br>
+            XFCE4 &amp; LXQt -&gt; Ringan</p>
+    </blockquote>
+    <p><img alt="" src="../../img/profile-2.jpeg" /></p>
+    <div class="admonition warning">
+        <p class="admonition-title">Warning</p>
+        <p>Untuk user NVIDIA, ubah <code>Graphics driver</code> ke <code>Nvidia (proprietary)</code>.
+            <img alt="" src="../../img/profile-3.jpeg" />
+        </p>
+    </div>
+    <h3 id="a-6-audio">A-6. Audio</h3>
+    <p>Pilih <code>pipewire</code>
+        <img alt="" src="../../img/audio.jpeg" />
+    </p>
+    <h3 id="a-7-network">A-7. Network</h3>
+    <p>Pada bagian <code>Network configuration</code>, pilih <code>NetworkManager</code> (sangat penting)</p>
+    <h3 id="a-8-zona-waktu">A-8. Zona Waktu</h3>
+    <p>Sesuaikan dengan Zona Waktu sekitar, WIB menggunakan Asia/Jakarta, WITA menggunakan Asia/Makassar dan WIT
+        menggunakan Asia/Jayapura
+        <img alt="" src="../../img/timezone.jpeg" />
+    </p>
+    <h3 id="a-9-install">A-9. Install</h3>
+    <p>Pilih <code>Install</code>, tunggu sampai proses instalasi selesai.</p>
+    <p>Bila sudah ada ditampilan "Would you like to chroot into newly installed system?" Pilih <code>no</code> dan
+        kemudian <code>reboot</code></p>
+    <pre class="codehilite"><code># reboot
 </code></pre>
 
-<p>Selesai, Arch Linux sudah terinstall.</p>
-<h2 id="b-manual">B. Manual</h2>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>Step harus diikuti dengan baik, kelewat 1 step bisa mengakibatkan instalasi menjadi rusak</p>
-</div>
-<h3 id="b-1-disk-partition">B-1. Disk Partition</h3>
-<p>List semua Drive beserta partisinya</p>
-<pre class="codehilite"><code># fdisk -l
+    <p>Selesai, Arch Linux sudah terinstall.</p>
+    <h2 id="b-manual">B. Manual</h2>
+    <div class="admonition danger">
+        <p class="admonition-title">Danger</p>
+        <p>Step harus diikuti dengan baik, kelewat 1 step bisa mengakibatkan instalasi menjadi rusak</p>
+    </div>
+    <h3 id="b-1-disk-partition">B-1. Disk Partition</h3>
+    <p>List semua Drive beserta partisinya</p>
+    <pre class="codehilite"><code># fdisk -l
 </code></pre>
 
-<p>Maka akan keluar list Drive dan partisi didalamnya</p>
-<pre class="codehilite"><code>Disk /dev/nvme0n1: 238.47 GiB, 256060514304 bytes, 500118192 sectors
+    <p>Maka akan keluar list Drive dan partisi didalamnya</p>
+    <pre class="codehilite"><code>Disk /dev/nvme0n1: 238.47 GiB, 256060514304 bytes, 500118192 sectors
 Disk model: SAMSUNG MZVLW256HEHP-000L7
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -242,16 +284,19 @@ Device     Start       End   Sectors   Size Type
 /dev/sda      1  976773168 976773168 500.1G Empty
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Drive NVMe ditandai dengan <code>/dev/nvmeNnX</code> sedangkan Drive SATA ditandai dengan <code>/dev/sdX</code>, untuk device dengan eMMC mungkin disk akan di mount dengan <code>/dev/mmcblkN</code></p>
-</div>
-<p>Misalkan kita ingin installnya di HDD <code>/dev/sda</code>, maka kita buat dulu partisi di <code>/dev/sda</code></p>
-<pre class="codehilite"><code># fdisk /dev/sda
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Drive NVMe ditandai dengan <code>/dev/nvmeNnX</code> sedangkan Drive SATA ditandai dengan
+            <code>/dev/sdX</code>, untuk device dengan eMMC mungkin disk akan di mount dengan <code>/dev/mmcblkN</code>
+        </p>
+    </div>
+    <p>Misalkan kita ingin installnya di HDD <code>/dev/sda</code>, maka kita buat dulu partisi di <code>/dev/sda</code>
+    </p>
+    <pre class="codehilite"><code># fdisk /dev/sda
 </code></pre>
 
-<p>Maka akan masuk ke menu fdisk</p>
-<pre class="codehilite"><code>Welcome to fdisk (util-linux 2.41).
+    <p>Maka akan masuk ke menu fdisk</p>
+    <pre class="codehilite"><code>Welcome to fdisk (util-linux 2.41).
 Changes will remain in memory only, until you decide to write them.
 Be careful before using the write command.
 
@@ -259,161 +304,169 @@ Be careful before using the write command.
 Command (m for help):
 </code></pre>
 
-<p>Untuk membuat partisi baru, masukkan command <code>n</code>. Kemudian masukkan nomor partisi (atau tinggal enter saja), First sector (Enter saja), dan Last Sector/Sizenya</p>
-<pre class="codehilite"><code>Command (m for help): n
+    <p>Untuk membuat partisi baru, masukkan command <code>n</code>. Kemudian masukkan nomor partisi (atau tinggal enter
+        saja), First sector (Enter saja), dan Last Sector/Sizenya</p>
+    <pre class="codehilite"><code>Command (m for help): n
 Partition number (1-128, default 1):
 Last sector, +/-sectors or +/-size{K,M,G,T,P} (1-976773134, default 976773119):
 </code></pre>
 
-<p>Untuk Last sector partisi <code>/boot</code>, masukkan <code>+1G</code></p>
-<pre class="codehilite"><code>Created a new partition 2 of type 'Linux filesystem' and of size 1 GiB.
+    <p>Untuk Last sector partisi <code>/boot</code>, masukkan <code>+1G</code></p>
+    <pre class="codehilite"><code>Created a new partition 2 of type 'Linux filesystem' and of size 1 GiB.
 </code></pre>
 
-<p>Lalu buat lagi partisi-partisi untuk <code>/</code> dan <code>/home</code>, ukuran bisa disesuaikan dengan kebutuhan. (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
-<p>Bila sudah dibuat partisi <code>/</code> dan <code>/home</code> maka masukkan command <code>w</code></p>
-<pre class="codehilite"><code>Command (m for help): w
+    <p>Lalu buat lagi partisi-partisi untuk <code>/</code> dan <code>/home</code>, ukuran bisa disesuaikan dengan
+        kebutuhan. (Untuk <code>/</code> direkomendasikan 16GB atau lebih)</p>
+    <p>Bila sudah dibuat partisi <code>/</code> dan <code>/home</code> maka masukkan command <code>w</code></p>
+    <pre class="codehilite"><code>Command (m for help): w
 </code></pre>
 
-<p>Jalankan <code>fdisk -l</code> sekali lagi, dan seharusnya seperti ini</p>
-<pre class="codehilite"><code>Device     Start       End   Sectors   Size Type
+    <p>Jalankan <code>fdisk -l</code> sekali lagi, dan seharusnya seperti ini</p>
+    <pre class="codehilite"><code>Device     Start       End   Sectors   Size Type
 /dev/sda1                                1G Linux filesystems
 /dev/sda2                               XXG Linux filesystems
 /dev/sda3                               XXG Linux filesystems
 </code></pre>
 
-<p>Kemudian partisi-partisi itu diformat</p>
-<p>Untuk <code>/boot</code>:</p>
-<pre class="codehilite"><code># mkfs.fat -F 32 /dev/sda1
+    <p>Kemudian partisi-partisi itu diformat</p>
+    <p>Untuk <code>/boot</code>:</p>
+    <pre class="codehilite"><code># mkfs.fat -F 32 /dev/sda1
 </code></pre>
 
-<p>Untuk <code>/</code>:</p>
-<pre class="codehilite"><code># mkfs.ext4 /dev/sda2
+    <p>Untuk <code>/</code>:</p>
+    <pre class="codehilite"><code># mkfs.ext4 /dev/sda2
 </code></pre>
 
-<p>Untuk <code>/home</code>:</p>
-<pre class="codehilite"><code> # mkfs.ext4 /dev/sda3
+    <p>Untuk <code>/home</code>:</p>
+    <pre class="codehilite"><code> # mkfs.ext4 /dev/sda3
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Asumsi jika <code>/dev/sda1</code> adalah <code>/boot</code>, <code>/dev/sda2</code> adalah <code>/</code>, dan <code>/dev/sda3</code> adalah <code>/home</code></p>
-</div>
-<p>Lalu mount semua partisi</p>
-<pre class="codehilite"><code># mount /dev/sda2 /mnt
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Asumsi jika <code>/dev/sda1</code> adalah <code>/boot</code>, <code>/dev/sda2</code> adalah <code>/</code>,
+            dan <code>/dev/sda3</code> adalah <code>/home</code></p>
+    </div>
+    <p>Lalu mount semua partisi</p>
+    <pre class="codehilite"><code># mount /dev/sda2 /mnt
 # mount --mkdir /dev/sda3 /mnt/home
 # mount --mkdir /dev/sda1 /mnt/boot
 </code></pre>
 
-<h3 id="b-2-instalasi-package-penting">B-2. Instalasi Package Penting</h3>
-<p>Untuk menginstall basis Sistem, jalankan perintah <code>pacstrap</code> sebagai berikut</p>
-<pre class="codehilite"><code># pacstrap -K /mnt base linux linux-firmware
+    <h3 id="b-2-instalasi-package-penting">B-2. Instalasi Package Penting</h3>
+    <p>Untuk menginstall basis Sistem, jalankan perintah <code>pacstrap</code> sebagai berikut</p>
+    <pre class="codehilite"><code># pacstrap -K /mnt base linux linux-firmware
 </code></pre>
 
-<h3 id="b-3-konfigurasi">B-3. Konfigurasi</h3>
-<p>Setelah selesai menginstall basis sistem, jalankan <code>genfstab</code> untuk membuat <code>/etc/fstab</code></p>
-<pre class="codehilite"><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+    <h3 id="b-3-konfigurasi">B-3. Konfigurasi</h3>
+    <p>Setelah selesai menginstall basis sistem, jalankan <code>genfstab</code> untuk membuat <code>/etc/fstab</code>
+    </p>
+    <pre class="codehilite"><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </code></pre>
 
-<p>Kemudian kita bisa <a href="https://wiki.archlinux.org/title/Change_root"><code>chroot</code></a> ke Root baru menggunakan <code>arch-chroot</code></p>
-<pre class="codehilite"><code># arch-chroot /mnt
+    <p>Kemudian kita bisa <a href="https://wiki.archlinux.org/title/Change_root"><code>chroot</code></a> ke Root baru
+        menggunakan <code>arch-chroot</code></p>
+    <pre class="codehilite"><code># arch-chroot /mnt
 </code></pre>
 
-<h3 id="b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</h3>
-<p>Untuk konfigurasi Zona Waktu:</p>
-<pre class="codehilite"><code># ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+    <h3 id="b-4-konfigurasi-waktu">B-4. Konfigurasi Waktu</h3>
+    <p>Untuk konfigurasi Zona Waktu:</p>
+    <pre class="codehilite"><code># ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 # hwclock --systohc
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Untuk WITA gunakan Asia/Makassar, dan untuk WIT gunakan Asia/Jayapura</p>
-</div>
-<h3 id="b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</h3>
-<p>Istall package <code>sudo</code> dan <code>vim</code> lalu</p>
-<pre class="codehilite"><code># pacman -S sudo vim
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Untuk WITA gunakan Asia/Makassar, dan untuk WIT gunakan Asia/Jayapura</p>
+    </div>
+    <h3 id="b-5-konfigurasi-sudoers">B-5. Konfigurasi Sudoers</h3>
+    <p>Istall package <code>sudo</code> dan <code>vim</code> lalu</p>
+    <pre class="codehilite"><code># pacman -S sudo vim
 </code></pre>
 
-<p>Setelah selesai, jalankan <code>visudo</code> dan hapus <code>#</code> di Line ke 125 (yang ada <code>%wheel</code> nya)</p>
-<pre class="codehilite"><code># visudo
+    <p>Setelah selesai, jalankan <code>visudo</code> dan hapus <code>#</code> di Line ke 125 (yang ada
+        <code>%wheel</code> nya)</p>
+    <pre class="codehilite"><code># visudo
 </code></pre>
 
-<h3 id="b-6-konfigurasi-locale">B-6. Konfigurasi Locale</h3>
-<p>Lalu atur locale dengan menghapus comment di <code>/etc/locale.gen</code>. Misalnya <code>en_US.UTF-8</code>, maka hapus comment untuk locale <code>en_US</code></p>
-<pre class="codehilite"><code># vim /etc/locale.gen
+    <h3 id="b-6-konfigurasi-locale">B-6. Konfigurasi Locale</h3>
+    <p>Lalu atur locale dengan menghapus comment di <code>/etc/locale.gen</code>. Misalnya <code>en_US.UTF-8</code>,
+        maka hapus comment untuk locale <code>en_US</code></p>
+    <pre class="codehilite"><code># vim /etc/locale.gen
 </code></pre>
 
-<p>Lalu buat locale.conf</p>
-<pre class="codehilite"><code># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+    <p>Lalu buat locale.conf</p>
+    <pre class="codehilite"><code># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Jika menggunakan locale lain, ubah <code>en_US.UTF-8</code> menjadi locale tersebut</p>
-</div>
-<p>Kemudian generate locale dengan <code>locale-gen</code></p>
-<pre class="codehilite"><code># locale-gen
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Jika menggunakan locale lain, ubah <code>en_US.UTF-8</code> menjadi locale tersebut</p>
+    </div>
+    <p>Kemudian generate locale dengan <code>locale-gen</code></p>
+    <pre class="codehilite"><code># locale-gen
 </code></pre>
 
-<h3 id="b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</h3>
-<p>Untuk mengatur hostname, bebas mau ngasih nama apa</p>
-<pre class="codehilite"><code># echo &lt;HOSTNAME&gt; &gt; /etc/hostname
+    <h3 id="b-7-konfigurasi-hostname-dan-user-account">B-7. Konfigurasi Hostname dan User Account</h3>
+    <p>Untuk mengatur hostname, bebas mau ngasih nama apa</p>
+    <pre class="codehilite"><code># echo &lt;HOSTNAME&gt; &gt; /etc/hostname
 </code></pre>
 
-<p>Untuk membuat user account</p>
-<pre class="codehilite"><code># useradd -m -G users,audio,lp,optical,storage,video,wheel,power -s /bin/bash &lt;USERNAME&gt;
+    <p>Untuk membuat user account</p>
+    <pre class="codehilite"><code># useradd -m -G users,audio,lp,optical,storage,video,wheel,power -s /bin/bash &lt;USERNAME&gt;
 </code></pre>
 
-<h3 id="b-8-setup-bootloader">B-8. Setup Bootloader</h3>
-<p>Sama seperti di cara yang menggunakan <code>archinstall</code>, saya merekomendasikan <code>GRUB</code>. Install package berikut ini:</p>
-<pre class="codehilite"><code># pacman -S grub os-prober efibootmgr
+    <h3 id="b-8-setup-bootloader">B-8. Setup Bootloader</h3>
+    <p>Sama seperti di cara yang menggunakan <code>archinstall</code>, saya merekomendasikan <code>GRUB</code>. Install
+        package berikut ini:</p>
+    <pre class="codehilite"><code># pacman -S grub os-prober efibootmgr
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Untuk sistem yang masih menggunakan BIOS Legacy tidak diperlukan efibootmgr</p>
-</div>
-<p>Lalu kita install GRUB ke <code>/boot</code></p>
-<pre class="codehilite"><code># grub-install --target=x86_64-efi --efi-direction=/boot --bootloader-id=&quot;Arch Linux&quot;
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Untuk sistem yang masih menggunakan BIOS Legacy tidak diperlukan efibootmgr</p>
+    </div>
+    <p>Lalu kita install GRUB ke <code>/boot</code></p>
+    <pre class="codehilite"><code># grub-install --target=x86_64-efi --efi-direction=/boot --bootloader-id=&quot;Arch Linux&quot;
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Untuk BIOS Legacy, gunakan <code>grub-install --target=i386-pc /dev/sda</code></p>
-</div>
-<p>Lalu generate Config GRUB dengan <code>grub-mkconfig</code></p>
-<pre class="codehilite"><code># grub-mkconfig -o /boot/grub/grub.cfg
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>Untuk BIOS Legacy, gunakan <code>grub-install --target=i386-pc /dev/sda</code></p>
+    </div>
+    <p>Lalu generate Config GRUB dengan <code>grub-mkconfig</code></p>
+    <pre class="codehilite"><code># grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre>
 
-<h3 id="b-9-desktop-environment">B-9. Desktop Environment</h3>
-<p>Install Desktop Environment yang kalian inginkan, <a href="https://wiki.archlinux.org/title/Desktop_environment">list Desktop Environment</a></p>
-<pre class="codehilite"><code># pacman -S &lt;DE&gt;
+    <h3 id="b-9-desktop-environment">B-9. Desktop Environment</h3>
+    <p>Install Desktop Environment yang kalian inginkan, <a
+            href="https://wiki.archlinux.org/title/Desktop_environment">list Desktop Environment</a></p>
+    <pre class="codehilite"><code># pacman -S &lt;DE&gt;
 </code></pre>
 
-<h3 id="b-10-networking">B-10. Networking</h3>
-<p>Install package <code>networkmanager</code> kemudian aktifkan servicenya</p>
-<pre class="codehilite"><code># pacman -S networkmanager
+    <h3 id="b-10-networking">B-10. Networking</h3>
+    <p>Install package <code>networkmanager</code> kemudian aktifkan servicenya</p>
+    <pre class="codehilite"><code># pacman -S networkmanager
 # systemctl enable NetworkManager
 </code></pre>
 
-<h3 id="b-11-finishing">B-11. Finishing</h3>
-<p>Keluar dari <code>chroot</code>, unmount partisi, dan reboot</p>
-<pre class="codehilite"><code># exit
+    <h3 id="b-11-finishing">B-11. Finishing</h3>
+    <p>Keluar dari <code>chroot</code>, unmount partisi, dan reboot</p>
+    <pre class="codehilite"><code># exit
 # umount -R /mnt
 # reboot
 </code></pre>
 
-<p>Selagi reboot, berdoa kalian tidak melakukan typo.</p>
-<h2 id="end">## End</h2>
-<p>Mungkin segitu saja panduan instalasi Arch Linux dari saya</p>
-<p>Terimakasih sudah membaca dan see ya!</p>
+    <p>Selagi reboot, berdoa kalian tidak melakukan typo.</p>
+    <h2 id="end">## End</h2>
+    <p>Mungkin segitu saja panduan instalasi Arch Linux dari saya</p>
+    <p>Terimakasih sudah membaca dan see ya!</p>
 
     <footer class="footer" id="center">
-    <p>
-        made by zvlfahmi, using <a href="https://github.com/itclubmanmet/static-site-generator" target="_blank">ITC's SSG</a>
-    </p>
-</footer>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <p>
+            made by zvlfahmi, using <a href="https://github.com/itclubmanmet/static-site-generator"
+                target="_blank">ITC's SSG</a>
+        </p>
+    </footer>
 </body>
 
 </html>
